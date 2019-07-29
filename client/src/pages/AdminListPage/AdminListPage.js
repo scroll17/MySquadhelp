@@ -1,5 +1,5 @@
 import React  from 'react';
-//import style from './MainPages.module.sass';
+//import style from './SignupPage.module.sass';
 
 import AdminList from '../../components/AdminList/AdminList'
 

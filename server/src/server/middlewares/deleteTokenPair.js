@@ -3,6 +3,7 @@ const { verifyToken } = require('../utils/jwtTokenVerify');
 
 module.exports = async (req, res, next) => {
     const {refreshToken} = req.body;
+    console.log(req.body);
     try{
         const decoded = await verifyToken(refreshToken, 'R');
         if(decoded){

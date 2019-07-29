@@ -9,16 +9,22 @@ export const loginUser = user => ({
   type: ACTION.LOGIN_USER_ACTION,
   user
 });
+export const userLogout = (refreshToken) => ({
+  type: ACTION.USER_LOGOUT,
+  refreshToken,
+});
+
 
 export const getUser = () => ({
   type: ACTION.GET_USER_ACTION
 });
 
-export const userLogout = (refreshToken) => ({
-  type: ACTION.USER_LOGOUT,
-  refreshToken
-});
 
 export const getAllUsers = () => ({
   type: ACTION.GET_ALL_USERS,
+});
+export const banUserById = (userId, isBanned) => ({
+  type: ACTION.BAN_USER_BY_ID,
+  userId,
+  isBanned,
 });

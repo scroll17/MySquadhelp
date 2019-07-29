@@ -8,12 +8,27 @@ import HeaderLoginAndSignup from "../../components/HeaderLoginAndSignup/HeaderLo
 import LoginForm from "../../components/LoginForm/LoginForm";
 import {Redirect} from "react-router-dom";
 
+import { SubmissionError } from 'redux-form';
+
+import * as yup from 'yup';
+import schema from'../../models/yupValidation';
+
 class LoginPage extends React.Component {
     constructor(props){
         super(props)
     }
 
-    onLoginSubmit = values => {this.props.onLoginSubmit(values)};
+    onLoginSubmit = async (values) => {
+        const resEmail = await yup.reach(schema, 'email').isValid(values.email);
+        console.log('resEmail',resEmail);
+        if (!resEmail) {
+            throw new SubmissionError({
+                email: 'Email is not valid format',
+                _error: 'Login failed!',
+            });
+        }
+        return this.props.onLoginSubmit(values)
+    };
 
     render(){
         return (

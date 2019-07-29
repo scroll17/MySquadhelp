@@ -72,22 +72,22 @@ module.exports.accessUser = async (req,res,next) => {
     }
 };
 
-module.exports.getAllUsers = async (req, res, next) => {
-    try{
-        const count  = await User.count({ where: {firstName: "Denis"}, raw: true });
-        res.send({count: count});
-    }catch (err) {
-        next(err)
+
+module.exports.updateUsersById = async (req, res, next) => {
+    const { id } = req.params;
+    const isBanned = !req.body.isBanned;
+    console.log('isBanned',isBanned);
+    try {
+        const updatedUser = await User.update({ isBanned }, {where: {id}});
+        if (updatedUser[0]) {
+            const user = await User.findOne({where: {id}});
+            return res.send(user);
+        } else {
+            return next({code: 404, message:"Error in updateUsersById"});
+        }
+    } catch (err) {
+        next(err);
     }
-};
-
-
-
-module.exports.updateUser = (req, res, next) => {
-/*    const {email, password, role, ...other} = req.body;
-    User.findByIdAndUpdate(req.params.id, other, {new: true, runValidators:true})
-        .then( updateUser => res.send(updateUser))
-        .catch( err => next(err));*/
 };
 
 module.exports.getAllUsers = async (req, res, next) => {

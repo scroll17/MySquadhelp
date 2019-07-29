@@ -15,7 +15,8 @@ class LoginSignUp extends React.Component {
 
     navigation = ({user, toLogoutClick}) => {
         if (user) {
-            //let adminPanel = user.role === "admin" ? (<span><Link to={"/adminpanel"}>Admin panel</Link></span>) : null;
+            let adminPanel = user.role === 2 ? (<span><Link to={"/adminpanel"}>Admin panel</Link></span>) : null;
+            console.log('user.role:', user.role);
 
             return(
                 <>
@@ -27,9 +28,9 @@ class LoginSignUp extends React.Component {
                     <span className={style.Logout} onClick={toLogoutClick}>
                         (Logout)
                     </span>
-{/*                    <span>
+                    <span>
                         {adminPanel}
-                    </span>*/}
+                    </span>
                 </>
             )
         }else{
@@ -39,7 +40,7 @@ class LoginSignUp extends React.Component {
                         <Link to={"/login"}>Login</Link>
                     </span>
                     <span>
-                        <Link to={"/singup"}>Sign Up</Link>
+                        <Link to={"/signup"}>Sign Up</Link>
                     </span>
                 </>
             )

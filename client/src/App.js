@@ -4,6 +4,7 @@ import { Router } from 'react-router'
 
 import MainPages from './pages/MainPages/MainPages'
 import LoginPages from './pages/LoginPages/LoginPages'
+import SignupPage from './pages/SignupPage/SignupPage';
 import NotFoundPages from "./pages/NotFoundPages/NotFoundPages";
 
 import history from "./boot/browserHistory";
@@ -39,6 +40,7 @@ class App extends Component{
                 <Switch>
                     <Route exact path={"/"}  component={MainPages}/>
                     <Route path={"/login"} component={this.IfUserIsLoggedIn(LoginPages)}/>
+                    <Route path={"/signup"} component={this.IfUserIsLoggedIn(SignupPage)}/>
                     <Route path={"/adminpanel"}  component={AdminListPage}/>
                     <Route component={ NotFoundPages } />
                 </Switch>

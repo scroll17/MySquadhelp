@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import style from './LoginForm.module.sass';
 
-import {Field, reduxForm} from 'redux-form';
-
+import { Field, reduxForm } from 'redux-form';
 
 class LoginForm extends Component {
     constructor(props){

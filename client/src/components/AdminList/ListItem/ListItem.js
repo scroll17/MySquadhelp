@@ -3,12 +3,10 @@ import style from './ListItem.module.sass';
 
 function ListItem(props){
 
-    const img = {backgroundImage: `url(${props.img})`};
-
         return(
-            <div className={style.ListItem} onClick={() => props.clickToItem(props.name)}>
+            <div className={style.ListItem} onClick={() => props.clickToItem(props.id, props.status)}>
                 <div className={style.AvatarAndData}>
-                    <div className={style.Avatar} style={img} />
+                    <div className={style.Avatar} />
 
                     <div className={style.NameAndLevel}>
                         <div className={style.ListItemName}>
@@ -17,9 +15,9 @@ function ListItem(props){
                     </div>
                 </div>
 
-               {/* <div className={ props.status ? style.Active : style.Passive } >
-                    <i className="fas fa-check check"></i>
-                </div>*/}
+                <div className={ props.status ? style.Active : style.Passive } >
+                    <i className="fas fa-check check" />
+                </div>
             </div>
         )
 }

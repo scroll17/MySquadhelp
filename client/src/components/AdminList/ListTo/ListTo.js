@@ -1,14 +1,21 @@
 import React from 'react';
 import style from './ListTo.module.sass';
 
-function ListTo({active, clickToItem}) {
+function ListTo(props){
+
+    let bannedUsers = [];
+    props.active.forEach((user) => {
+        if (user.isBanned) {
+            bannedUsers.push(user);
+        }
+    });
 
     const renderNames = () => {
-        const namesLength = active.length;
+        const namesLength = bannedUsers.length;
         if(namesLength > 0) {
-            return active.map( (u,index) => {
+            return bannedUsers.map( (user,index) => {
                 const coma = (index === namesLength-1 ) ? " " : ", ";
-                return <span onClick={()=>clickToItem(u)}>{ u }{coma} </span>
+                return <span key={user.id} onClick={()=>props.clickToItem(user.id, user.isBanned)}>{ `${user.firstName} id:${user.id}` }{coma} </span>
             })
         }
         return '';
@@ -25,5 +32,6 @@ function ListTo({active, clickToItem}) {
         </div>
     );
 }
+
 
 export default ListTo;

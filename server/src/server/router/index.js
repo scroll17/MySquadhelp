@@ -30,10 +30,10 @@ router.post('/login', userController.loginUser, refreshValidationToken, createAn
 router.post('/refresh', userController.refreshUser, updateRefreshToken);
 router.delete('/logout',  deleteTokenPair);
 
-// ---------------- Admin ---------------
 
-router.put('/user/:id', userController.updateUser);
-router.get('/allUser', userController.getAllUsers);
+// ---------------- Admin ---------------
+router.put('/user/:id', userController.updateUsersById);
+router.get('/AllUser', userController.getAllUsers);
 
 
 module.exports = router;
