@@ -1,0 +1,66 @@
+%circle
+  border-radius: 100%
+  width: 28px
+  height: 28px
+  margin: 22px 17px 22px 0
+
+.ListItem
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  align-items: center
+  height: 72px
+  background-color: #FFFFFF
+  border-top: #E6EAEE 1px solid
+
+  i
+    color: white
+    padding: 6px
+  .Active
+    @extend %circle
+    background-color: #48C1C2
+  .Passive
+    @extend %circle
+    background-color: #DBE0E6
+
+  .AvatarAndData
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+
+    .Avatar
+      width: 48px
+      height: 48px
+
+      background-size: cover
+      border-radius: 30px
+
+      margin: 0 16px
+
+
+  .NameAndLevel
+    display: flex
+    flex-direction: column
+    text-align: left
+
+    .ListItemLevel
+      color: #0B3157
+      font-family: Montserrat
+      font-size: 14px
+      font-weight: 500
+      letter-spacing: -0.26px
+      line-height: 17px
+      opacity: 0.5
+
+    .ListItemName
+      color: #0B3157
+      font-family: Montserrat
+      font-size: 16px
+      font-weight: 500
+      letter-spacing: -0.3px
+      line-height: 19px
+
+
+
+
+
