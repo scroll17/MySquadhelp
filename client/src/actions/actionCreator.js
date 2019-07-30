@@ -1,5 +1,10 @@
 import ACTION from './actiontsTypes';
 
+export const createError = error => ({ //TODO
+  type: ACTION.USERS_ERROR,
+  error
+});
+
 export const createUser = user => ({
   type: ACTION.CREATE_USER_ACTION,
   user

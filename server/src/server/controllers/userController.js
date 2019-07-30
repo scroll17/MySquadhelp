@@ -5,6 +5,7 @@ const { User, RefreshToken } = require('../models/index');
 const sequelize = db.sequelize;
 
 const { verifyToken } = require('../utils/jwtTokenVerify');
+const { InvalidCredentials } = require('../errors/errors');
 
 module.exports.createUser = async (req, res, next) => {
     console.log(req.body);
@@ -16,8 +17,7 @@ module.exports.createUser = async (req, res, next) => {
                 lastName: body.lastName,
                 displayName: body.displayName,
                 email: body.email,
-                gender: body.gender,
-                role: body.role,
+                //role: body.role,
                 password: body.hash
             },
         });
@@ -51,7 +51,7 @@ module.exports.refreshUser = async (req,res,next) => {
     try{
         const token = await RefreshToken.findOne({
             where: { tokenString: refreshToken },
-            transaction,
+            transaction, /*JsonWebTokenError*/
         });
 
         const userId = token.dataValues.userId;
@@ -59,9 +59,9 @@ module.exports.refreshUser = async (req,res,next) => {
         req.user = await User.findByPk(userId);
         next()
     }catch (err) {
+        if(err.name === 'TokenExpiredError') return next(new InvalidCredentials(err.name));
         next(err)
     }
-
 };
 
 

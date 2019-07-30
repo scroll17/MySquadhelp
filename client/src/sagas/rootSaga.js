@@ -3,17 +3,20 @@ import ACTION from '../actions/actiontsTypes';
 
 import {
   loginUserSaga,
+  createUserSaga,
   getUserSaga,
   userLogoutSaga,
   getAllUserSaga,
   banUserByIdSaga,
 } from './userSaga';
 
-import { saveTokenSaga } from './tokenSaga'
+import { saveTokenSaga,tokenErrorSaga } from './tokenSaga'
 
 function* rootSaga() {
   yield takeLatest(ACTION.LOGIN_USER_ACTION, loginUserSaga);
+  yield takeLatest(ACTION.CREATE_USER_ACTION, createUserSaga);
   yield takeLatest(ACTION.TOKENS_ACTION_WITH_LOCAL, saveTokenSaga);
+  yield takeLatest(ACTION.TOKENS_ERROR, tokenErrorSaga);
   yield takeLatest(ACTION.GET_USER_ACTION, getUserSaga);
   yield takeLatest(ACTION.USER_LOGOUT, userLogoutSaga);
   yield takeLatest(ACTION.GET_ALL_USERS, getAllUserSaga);

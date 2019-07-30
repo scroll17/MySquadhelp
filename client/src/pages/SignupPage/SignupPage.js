@@ -5,7 +5,7 @@ import style from "./SignupPage.module.sass";
 import HeaderLoginAndSignup from "../../components/HeaderLoginAndSignup/HeaderLoginAndSignup";
 import SignupForm from "../../components/SignupForm/SignupForm";
 
-import { loginUser } from "../../actions/actionCreator";
+import { createUser } from "../../actions/actionCreator";
 
 
 
@@ -14,14 +14,23 @@ class SignupPage extends Component{
         super(props)
     }
 
-    onLoginSubmit = values => {this.props.onLoginSubmit(values)};
+    onSignupSubmit = values => {
+        const dataSend = {
+            firstName:values.firstName,
+            lastName:values.lastName,
+            displayName:values.displayName,
+            email: values.email,
+            password: values.password,
+        };
+        this.props.onSignupSubmit(dataSend)
+    };
 
     render(){
         return (
             <main className={style.UserSignupFlow}>
                 <div className={style.Container}>
                     <HeaderLoginAndSignup>Login</HeaderLoginAndSignup>
-                    <SignupForm onSubmit={this.onLoginSubmit}/>
+                    <SignupForm onSubmit={this.onSignupSubmit}/>
                 </div>
             </main>
         );
@@ -34,7 +43,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    onLoginSubmit: user => dispatch(loginUser(user)),
+    onSignupSubmit: user => dispatch(createUser(user)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignupPage);

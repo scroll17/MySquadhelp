@@ -18,7 +18,7 @@ class LoginForm extends Component {
 
 
     render () {
-        const {handleSubmit, submitting} = this.props;
+        const { handleSubmit, submitting} = this.props;
         return (
 
             <div className={style.LoginForm}>
@@ -27,7 +27,7 @@ class LoginForm extends Component {
                     <h2>LOGIN TO YOUR ACCOUNT</h2>
                 </div>
 
-                <form onSubmit={handleSubmit} className={style.Form}>
+                <form onSubmit={ handleSubmit} className={style.Form}>
                     <div className={style.Email}>
                         <Field name="email" component="input"
                                type="email" placeholder="Email address"

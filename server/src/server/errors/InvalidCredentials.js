@@ -4,6 +4,5 @@ class InvalidCredentials extends ApplicationError {
         super(message || 'Invalid credentials !', 401);
     }
 }
-
 module.exports = InvalidCredentials;
 

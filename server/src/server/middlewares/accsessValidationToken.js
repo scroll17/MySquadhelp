@@ -1,9 +1,10 @@
 const { verifyToken } = require('../utils/jwtTokenVerify');
 
-module.exports = async (req, res, next) => {
+const { ForbiddenErrors, AuthenticationTimeout } = require("../errors/errors");
 
+module.exports = async (req, res, next) => {
     const authHeader = req.get("Authorization");
-    if(!authHeader) next({code: 999, message: "Not token"});
+    if(!authHeader) next(new ForbiddenErrors("Not token"));
 
     const accessToken = authHeader.replace('Bearer ','');
 
@@ -11,6 +12,6 @@ module.exports = async (req, res, next) => {
         req.decoded = await verifyToken(accessToken, 'A');
         next();
     }catch (err) {
-        next(err)
+        next(new AuthenticationTimeout());
     }
 };

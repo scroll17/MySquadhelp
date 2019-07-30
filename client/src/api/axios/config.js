@@ -1,34 +1,44 @@
 import axios from 'axios';
 import ACTION from '../../actions/actiontsTypes';
 import {restURL} from '../baseURL';
-import Store from '../../boot/store';
+import store from '../../boot/store';
 
-axios.interceptors.request.use( config => {
-    axios.defaults.headers.common['Authorization'] = "Bearer " + localStorage.getItem("accessToken");
+import history from "../../boot/config";
+
+axios.interceptors.request.use(  config => {
+    config.headers.common['Authorization'] = "Bearer " + localStorage.getItem("accessToken");
     return config;
 }, error => {
     return Promise.reject(error);
 });
 
+
 axios.interceptors.response.use(
     response => response,
     async (error) => {
-        if(error.response.status === 401 && error.response.data.token === "access" ) {// TODO
-            try {
-                const {data: {tokenPair: tokens, user}} = await axios.post(restURL + '/refresh', getRefreshBody());
-                Store.dispatch({type: ACTION.SET_TOKENS_ACTION, tokens});
-
-                error.config.headers['Authorization'] = "Bearer "+tokens.access;
-                error.config.__isRetryRequest=true;
-
-                Store.dispatch({type: ACTION.USERS_RESPONSE, user});
-                return axios(error.config);
-            } catch (err) {
-                Store.dispatch({type: ACTION.TOKEN_ERROR});
+        try {
+            switch (error.response.status) {
+                case 401:
+                    console.log(401);
+                    localStorage.clear();
+                    history.push('/login');
+                    break;
+                case 419:
+                    console.log(419);
+                    const {data: {tokenPair , user}} = await axios.post(`${restURL}/refresh`, {refreshToken: localStorage.getItem("refreshToken")});
+                    console.log('data: ', tokenPair);
+                    store.dispatch({type: ACTION.TOKENS_ACTION_WITH_LOCAL, tokenPair});
+                    store.dispatch({type: ACTION.USERS_RESPONSE, user});
+                    break;
             }
+        } catch (err) {
+            console.log('/axios/config : ',err);
+            store.dispatch({type: ACTION.TOKENS_ERROR, err});
         }
         return error;
-    });
+    }
+);
+
 
 export const setAuthRequest = (accessToken) => {
     axios.defaults.headers.common['Authorization'] = "Bearer " + accessToken;

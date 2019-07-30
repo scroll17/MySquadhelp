@@ -10,12 +10,19 @@ import connect from "react-redux/es/connect/connect";
 
 import { getAllUsers, banUserById } from "../../actions/actionCreator";
 
+//import { getUser } from '../../'
+
 
 
 class AdminList extends Component {
     constructor(props) {
         super(props);
     }
+
+    componentWillMount() {
+
+    };
+
 
     clickToBan = (userId, isBanned) => {
         this.props.banUserById(userId, isBanned);
@@ -45,7 +52,7 @@ class AdminList extends Component {
     render() {
         const { users } = this.props;
 
-        if (!this.props.user || this.props.user.role !== 2) return <Redirect to='/notfound' />;
+        if (this.props.user.role !== 2) return <Redirect to='/notfound' />;
 
         return (
             <div className={style.List} onMouseDown={(e) => {e.preventDefault()}}>

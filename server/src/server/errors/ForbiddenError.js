@@ -4,5 +4,4 @@ class ForbiddenError extends ApplicationError {
         super(message || 'Forbidden !', 403);
     }
 }
-
 module.exports = ForbiddenError;

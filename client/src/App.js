@@ -16,16 +16,13 @@ import AdminListPage from './pages/AdminListPage/AdminListPage'
 import {getUser} from "./actions/actionCreator";
 import connect from "react-redux/es/connect/connect";
 
+import UserLoader from './components/Route/UserLoader';
+
 class App extends Component{
     constructor(props){
         super(props)
     }
 
-    componentDidMount() {
-        if(!this.props.user){
-            this.props.getUser();
-        }
-    }
 
     IfUserIsLoggedIn(component){
         if(this.props.user){
@@ -36,15 +33,18 @@ class App extends Component{
 
     render(){
         return(
-            <Router history={history}>
-                <Switch>
-                    <Route exact path={"/"}  component={MainPages}/>
-                    <Route path={"/login"} component={this.IfUserIsLoggedIn(LoginPages)}/>
-                    <Route path={"/signup"} component={this.IfUserIsLoggedIn(SignupPage)}/>
-                    <Route path={"/adminpanel"}  component={AdminListPage}/>
-                    <Route component={ NotFoundPages } />
-                </Switch>
-            </Router>
+            <UserLoader>
+                <Router history={history}>
+                    <Switch>
+                        <Route exact path={"/"}  component={MainPages}/>
+                        <Route path={"/login"} component={this.IfUserIsLoggedIn(LoginPages)}/>
+                        <Route path={"/signup"} component={this.IfUserIsLoggedIn(SignupPage)}/>
+                        <Route path={"/adminpanel"}  component={LoggedInMainPage(AdminListPage)}/>
+{/*                        <PrivateRoute requireRole={2} path={"/adminpanel"}  component={AdminListPage}/>*/}
+                        <Route component={ NotFoundPages } />
+                    </Switch>
+                </Router>
+            </UserLoader>
         )
     }
 }

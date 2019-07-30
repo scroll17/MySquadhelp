@@ -23,14 +23,14 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true,
       },
     },
-/*    displayName: {
+    displayName: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
       validate: {
         notEmpty: true,
       },
-    },*/
+    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -46,13 +46,13 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true,
       },
     },
-    gender: {
+/*    gender: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         notEmpty: true,
       },
-    },
+    },*/
     role: {
       type: DataTypes.INTEGER,
       allowNull: false,

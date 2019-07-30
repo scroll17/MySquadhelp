@@ -6,18 +6,23 @@ export default function(WrappedComponent) {
     class LoggedInMainPage extends Component {
         constructor(props) {
             super(props);
+
         }
-        checkUserToken = () => {
+        componentDidMount() {
+            if(!this.props.user)
+            this.props.getUser();
+        }
+
+        /*checkUserToken = () => {
             if(this.props.user){
                 return <WrappedComponent/>
             }else{
-                this.props.getUser();
-                return <WrappedComponent/>
+                return
             }
         };
-
+*/
         render() {
-            return this.checkUserToken()
+            return <WrappedComponent/>
         }
     }
 

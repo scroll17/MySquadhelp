@@ -4,5 +4,4 @@ class GoneError extends ApplicationError {
         super(message || 'Removed !', 410);
     }
 }
-
 module.exports = GoneError;
