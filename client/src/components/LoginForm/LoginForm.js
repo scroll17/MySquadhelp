@@ -8,8 +8,17 @@ class LoginForm extends Component {
         super(props)
 
     }
+
+    renderField = ({input, label, type, meta: { touched, error },}) => (
+                <div className={style.Email}>
+                    <input {...input} type={type} placeholder={label} className={style.InputNormal}/>
+                    {touched && error && <div className={style.errorContainer}>{error}</div>}
+                </div>
+        );
+
+
     render () {
-        const {handleSubmit} = this.props;
+        const {handleSubmit, submitting} = this.props;
         return (
 
             <div className={style.LoginForm}>
@@ -20,13 +29,20 @@ class LoginForm extends Component {
 
                 <form onSubmit={handleSubmit} className={style.Form}>
                     <div className={style.Email}>
-                        <Field name="email" component="input" type="text" placeholder="Email address"/>
+                        <Field name="email" component="input"
+                               type="email" placeholder="Email address"
+                               className={style.InputNormal}
+                        />
                     </div>
                     <div className={style.Email}>
-                        <Field name="password" component="input" type="password" placeholder="Password" />
+                        <Field name="password" component="input"
+                               type="password"
+                               placeholder="Password"
+                               className={style.InputNormal}
+                        />
                     </div>
                     <div className={style.Buttom}>
-                        <button type="submit" label="LOGIN">LOGIN</button>
+                        <button type="submit" disabled={submitting} label="LOGIN">LOGIN</button>
                     </div>
                 </form>
 

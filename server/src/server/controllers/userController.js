@@ -7,12 +7,14 @@ const sequelize = db.sequelize;
 const { verifyToken } = require('../utils/jwtTokenVerify');
 
 module.exports.createUser = async (req, res, next) => {
+    console.log(req.body);
     const body = Object.assign({},req.body);
     try{
         const [user, created] = await User.findOrCreate({
             where: {email: body.email}, defaults: {
                 firstName: body.firstName,
                 lastName: body.lastName,
+                displayName: body.displayName,
                 email: body.email,
                 gender: body.gender,
                 role: body.role,

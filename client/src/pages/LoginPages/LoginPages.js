@@ -20,7 +20,6 @@ class LoginPage extends React.Component {
 
     onLoginSubmit = async (values) => {
         const resEmail = await yup.reach(schema, 'email').isValid(values.email);
-        console.log('resEmail',resEmail);
         if (!resEmail) {
             throw new SubmissionError({
                 email: 'Email is not valid format',

@@ -1,7 +1,7 @@
 .LoginForm
   padding: 10px 20px 30px
   max-width: 595px
-  margin: 80px auto 0 auto
+  margin:  0 auto //80px auto 0 auto
   display: flex
   flex-direction: column
 
@@ -21,7 +21,7 @@
       box-sizing: border-box
       padding: 0 14px 1.15rem
 
-      input
+      .InputNormal
         color: #9CA8B7
         margin: 0
         width: 100%
@@ -67,5 +67,22 @@
       font-weight: 700
       cursor: pointer
 
+.Field
+  position: relative
+  flex: 1 0 auto
+  min-width: 297px
+  box-sizing: border-box
+  padding: 0 14px 1.15rem
 
+
+.errorContainer
+  margin-top: 15px
+  border: 1px solid #b72522
+  font-size: 14px
+  color: #fff
+  padding: 5px 15px
+  width: 100%
+  text-align: center
+  display: block
+  box-sizing: border-box
 
