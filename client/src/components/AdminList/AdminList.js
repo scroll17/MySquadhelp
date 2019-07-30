@@ -19,11 +19,6 @@ class AdminList extends Component {
         super(props);
     }
 
-    componentWillMount() {
-
-    };
-
-
     clickToBan = (userId, isBanned) => {
         this.props.banUserById(userId, isBanned);
     };
@@ -51,9 +46,6 @@ class AdminList extends Component {
 
     render() {
         const { users } = this.props;
-
-        if (this.props.user.role !== 2) return <Redirect to='/notfound' />;
-
         return (
             <div className={style.List} onMouseDown={(e) => {e.preventDefault()}}>
                 <ListTo active={this.bannedUsers(users)} clickToItem={this.clickToBan}/>

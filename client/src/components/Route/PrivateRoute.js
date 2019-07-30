@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Route, Switch, Redirect } from "react-router-dom";
-import { Router } from 'react-router'
+import { Route, Redirect } from "react-router-dom";
 
-import {getUser} from "./actions/actionCreator";
+import {getUser} from "../../actions/actionCreator";
 import connect from "react-redux/es/connect/connect";
 
 
@@ -12,27 +11,13 @@ class UserLoader extends Component{
     constructor(props){
         super(props)
     }
-
-/*
-    componentDidMount() {
-        if(!this.props.user){
-            this.props.getUser();
-        }
-    }
-*/
-
-    IfUserIsLoggedIn(component){
-        if(this.props.user){
-            return () => <Redirect to='/'/>
-        }
-        return component
-    }
-
     render(){
+        if (!this.props.user){
+            return <Redirect to='/notfound' />;
+            if(this.props.user.role !== 2 ) return <Redirect to='/notfound' />;
+        }
         return(
-            <>
-                {this.props.children}
-            </>
+            <Route path={this.props.path}  component={this.props.component}/>
         )
     }
 }

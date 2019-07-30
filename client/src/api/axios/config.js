@@ -1,9 +1,9 @@
 import axios from 'axios';
 import ACTION from '../../actions/actiontsTypes';
 import {restURL} from '../baseURL';
-import store from '../../boot/store';
+import store from '../../boot/config';
 
-import history from "../../boot/config";
+import history from "../../boot/browserHistory";
 
 axios.interceptors.request.use(  config => {
     config.headers.common['Authorization'] = "Bearer " + localStorage.getItem("accessToken");
@@ -26,7 +26,6 @@ axios.interceptors.response.use(
                 case 419:
                     console.log(419);
                     const {data: {tokenPair , user}} = await axios.post(`${restURL}/refresh`, {refreshToken: localStorage.getItem("refreshToken")});
-                    console.log('data: ', tokenPair);
                     store.dispatch({type: ACTION.TOKENS_ACTION_WITH_LOCAL, tokenPair});
                     store.dispatch({type: ACTION.USERS_RESPONSE, user});
                     break;
@@ -35,7 +34,7 @@ axios.interceptors.response.use(
             console.log('/axios/config : ',err);
             store.dispatch({type: ACTION.TOKENS_ERROR, err});
         }
-        return error;
+        //return error;
     }
 );
 

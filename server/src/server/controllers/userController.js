@@ -17,7 +17,7 @@ module.exports.createUser = async (req, res, next) => {
                 lastName: body.lastName,
                 displayName: body.displayName,
                 email: body.email,
-                //role: body.role,
+                role: body.role,
                 password: body.hash
             },
         });
@@ -51,8 +51,10 @@ module.exports.refreshUser = async (req,res,next) => {
     try{
         const token = await RefreshToken.findOne({
             where: { tokenString: refreshToken },
-            transaction, /*JsonWebTokenError*/
+            transaction,
         });
+
+        console.log('token',token);
 
         const userId = token.dataValues.userId;
         await verifyToken(refreshToken, "R");

@@ -17,6 +17,7 @@ import {getUser} from "./actions/actionCreator";
 import connect from "react-redux/es/connect/connect";
 
 import UserLoader from './components/Route/UserLoader';
+import PrivateRoute from './components/Route/PrivateRoute';
 
 class App extends Component{
     constructor(props){
@@ -39,8 +40,8 @@ class App extends Component{
                         <Route exact path={"/"}  component={MainPages}/>
                         <Route path={"/login"} component={this.IfUserIsLoggedIn(LoginPages)}/>
                         <Route path={"/signup"} component={this.IfUserIsLoggedIn(SignupPage)}/>
-                        <Route path={"/adminpanel"}  component={LoggedInMainPage(AdminListPage)}/>
-{/*                        <PrivateRoute requireRole={2} path={"/adminpanel"}  component={AdminListPage}/>*/}
+{/*                        <Route path={"/adminpanel"}  component={LoggedInMainPage(AdminListPage)}/>*/}
+                        <PrivateRoute requireRole={2} path={"/adminpanel"}  component={AdminListPage}/>
                         <Route component={ NotFoundPages } />
                     </Switch>
                 </Router>
