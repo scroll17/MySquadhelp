@@ -48,7 +48,6 @@ export function* createUserSaga({user}) {
 }
 
 export function* getUserSaga() {
-    yield put({type: ACTION.USERS_REQUEST});
     try {
             //yield call(getAuthRequest);
             const {data} = yield getUser();
@@ -63,8 +62,7 @@ export function* userLogoutSaga({refreshToken}) {
     try {
         yield call(userLogout, refreshToken);
 
-        localStorage.removeItem("accessToken");
-        localStorage.removeItem("refreshToken");
+        localStorage.clear();
 
         yield put({type: ACTION.TOKENS_ACTION_WITH_LOCAL, tokens: {accessToken: "", refreshToken: ""}});
         yield put({type: ACTION.USERS_RESPONSE, user: null});

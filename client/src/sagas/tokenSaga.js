@@ -5,11 +5,7 @@ import history from '../boot/browserHistory';
 import { setAuthRequest } from '../api/axios/config';
 
 export function* saveTokenSaga({tokens}) {
-    console.log('saveTokenSaga');
-
-    console.log(' save tokens.refreshToken : ',tokens.refreshToken);
-
-    if(tokens){
+    if(tokens.accessToken.length > 0){
         localStorage.setItem("accessToken", tokens.accessToken);
         localStorage.setItem("refreshToken", tokens.refreshToken);
     }

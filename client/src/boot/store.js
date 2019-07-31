@@ -3,6 +3,22 @@ import { Provider } from 'react-redux';
 import config from './config';
 import App from '../App';
 
+
+const STORE = config();
+
+function Store(){
+  return (
+      <Provider store={ STORE }>
+        <App />
+      </Provider>
+  );
+}
+
+export const store = STORE;
+export default Store;
+
+
+/*
 class Store extends Component {
   constructor(props) {
     super(props);
@@ -22,3 +38,4 @@ class Store extends Component {
 }
 
 export default Store;
+*/

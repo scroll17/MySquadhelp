@@ -47,18 +47,19 @@ module.exports.loginUser = async (req,res,next) => {
 
 module.exports.refreshUser = async (req,res,next) => {
     const {refreshToken} = req.body;
-    let transaction = await sequelize.transaction();
+    //let transaction = await sequelize.transaction();
     try{
         const token = await RefreshToken.findOne({
             where: { tokenString: refreshToken },
-            transaction,
+            /*transaction*/
         });
 
-        console.log('token',token);
-
-        const userId = token.dataValues.userId;
+        const userId = token.dataValues.userId; //TODO
         await verifyToken(refreshToken, "R");
-        req.user = await User.findByPk(userId);
+        req.user = await User.findByPk(userId, /*transaction*/ );
+
+        /*transaction.commit();*/
+
         next()
     }catch (err) {
         if(err.name === 'TokenExpiredError') return next(new InvalidCredentials(err.name));

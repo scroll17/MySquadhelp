@@ -4,8 +4,8 @@ const SALT_RONDS = 8;
 const ACSSES_SECRET = "Keep it simple, stupid";
 const REFRESH_SECRET = "xzzzzzzzzz";
 
-const EXPIRES_IN_ACSSES = '1d'; //TODO
-const EXPIRES_IN_REFRESH = '30d';
+const EXPIRES_IN_ACSSES = '30min'; //TODO
+const EXPIRES_IN_REFRESH = '15d';
 
 module.exports = {
     PORT,

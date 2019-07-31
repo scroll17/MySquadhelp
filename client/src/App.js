@@ -41,7 +41,7 @@ class App extends Component{
                         <Route path={"/login"} component={this.IfUserIsLoggedIn(LoginPages)}/>
                         <Route path={"/signup"} component={this.IfUserIsLoggedIn(SignupPage)}/>
 {/*                        <Route path={"/adminpanel"}  component={LoggedInMainPage(AdminListPage)}/>*/}
-                        <PrivateRoute requireRole={2} path={"/adminpanel"}  component={AdminListPage}/>
+                        <PrivateRoute requireRole={2} path={"/adminpanel"}  component={AdminListPage} />
                         <Route component={ NotFoundPages } />
                     </Switch>
                 </Router>

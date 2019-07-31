@@ -12,16 +12,14 @@ class UserLoader extends Component{
 
     componentDidMount() {
         if(!this.props.user && localStorage.getItem("accessToken")) {
-            console.log('UserLoader');
             return this.props.getUser();
         }
     }
 
     render(){
+        console.log('render',this.props.user);
         return(
-            <>
-                {this.props.children}
-            </>
+            <> {this.props.children} </>
         )
     }
 }

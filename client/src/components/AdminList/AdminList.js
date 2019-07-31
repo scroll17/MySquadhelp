@@ -65,7 +65,6 @@ class AdminList extends Component {
 
 const mapStateToProps = (state) => ({
     users: state.userReducers.users,
-    user: state.userReducers.user,
 });
 
 const mapDispatchToProps = dispatch => ({

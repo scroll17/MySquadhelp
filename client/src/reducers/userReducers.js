@@ -11,6 +11,7 @@ const initialState = {
 export default function (state = initialState, action) {
   switch (action.type) {
     case ACTION.USERS_REQUEST: {
+      console.log('USERS_REQUEST', action);
       return {
         ...state,
         isFetching: true,
