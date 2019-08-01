@@ -6,29 +6,17 @@ import { MoonLoader } from "react-spinners";
 import {getUser} from "../../actions/actionCreator";
 import connect from "react-redux/es/connect/connect";
 
-
 class PrivateRoute extends Component{
-    constructor(props){
-        super(props)
-    }
-
-
     renderPage(){
-        console.log('user: ', !this.props.user,' isFetching: ', this.props.isFetching === "answered");
-
-        if (!this.props.user && this.props.isFetching === 'answered'){
+        const { user, isFetching, requireRole} = this.props;
+        if ((!user || user.role !== requireRole) && isFetching === 'answered'){
             return <Redirect to='/notfound' />;
-            if(this.props.user.role !== 2 ) return <Redirect to='/notfound' />;
         }
-        return(
-            <Route path={this.props.path}  component={this.props.component}/>
-        )
+        return( <Route path={this.props.path}  component={this.props.component}/> )
     }
 
     static renderLoader() {
-        return (<MoonLoader
-                size={200}
-            />);
+        return (<MoonLoader size={200} />);
     }
 
     render(){
@@ -43,20 +31,6 @@ class PrivateRoute extends Component{
             </>
         )
     }
-/*
-    componentDidMount() {
-        console.log('Update by', this.props.isFetching);
-        if(!!this.props.isFetching) return true;
-    }*/
-/*
-    shouldComponentUpdate(nextProps, nextState, nextContext) {
-
-        console.log('shouldComponentUpdate', this.props.isFetching === "requested" && nextProps.isFetching === "answered");
-
-
-        if(this.props.isFetching === "requested" && nextProps.isFetching === "answered"){ return true }
-        else{ return false }
-    }*/
 }
 
 const mapStateToProps = (state) => ({

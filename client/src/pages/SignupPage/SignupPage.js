@@ -8,12 +8,7 @@ import SignupForm from "../../components/SignupForm/SignupForm";
 import { createUser } from "../../actions/actionCreator";
 
 
-
 class SignupPage extends Component{
-    constructor(props){
-        super(props)
-    }
-
     onSignupSubmit = values => {
         const dataSend = {
             firstName:values.firstName,

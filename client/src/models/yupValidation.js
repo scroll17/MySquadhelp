@@ -1,5 +1,5 @@
 import * as yup from 'yup';
-import ROLE from '../utils/consts';
+// import ROLE from '../utils/consts'; //TODO
 
 const schema = yup.object().shape({
     firstName : yup

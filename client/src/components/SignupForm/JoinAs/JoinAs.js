@@ -5,7 +5,7 @@ import { Field } from 'redux-form';
 
 
 function JoinAs(props) {
-    const {name, placeholder} = props;
+    //const {name, placeholder} = props;
 
     return (
         <div className={style.Row}>

@@ -5,10 +5,6 @@ import HeaderTop from "../../components/HeaderTop/HeaderTop";
 import HeaderBottom from "../../components/HeaderBottom/HeaderBottom";
 
 class MainPages extends Component{
-    constructor(props){
-        super(props)
-    }
-
     render() {
         return (
             <header className={style.Header}>

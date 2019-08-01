@@ -2,7 +2,7 @@
 import ACTION from '../actions/actiontsTypes';
 
 const initialState = {
-  isFetching: "notHave",
+  isFetching: "null",
   error: null,
   user: null,
   users: [],
@@ -11,7 +11,6 @@ const initialState = {
 export default function (state = initialState, action) {
   switch (action.type) {
     case ACTION.USERS_REQUEST: {
-      console.log("isFetching true", action);
       return {
         ...state,
         isFetching: "requested",
@@ -19,7 +18,6 @@ export default function (state = initialState, action) {
       }
     }
     case ACTION.USERS_RESPONSE: {
-      console.log("isFetching false", action);
       return {
         ...state,
         ...action,

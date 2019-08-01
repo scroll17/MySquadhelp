@@ -8,6 +8,5 @@ export const userLogout = (refreshToken) =>  axios.delete(`${restURL}/logout`, {
 
 export const getUser = () =>  axios.get(restURL + '/user');
 
-
 export const getAllUser = () =>  axios.get(restURL + '/AllUser');
 export const banUserById = (userId, isBanned) => axios.put(`${restURL}/user/${userId}`, { isBanned });

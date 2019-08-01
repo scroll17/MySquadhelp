@@ -8,6 +8,5 @@ function AdminListPage() {
         <AdminList />
     );
 }
-
 export default AdminListPage;
 

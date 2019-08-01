@@ -3,28 +3,23 @@ import style from './SignupForm.module.sass';
 
 import { Link } from "react-router-dom";
 
-import {Field, reduxForm} from 'redux-form';
+import { reduxForm } from 'redux-form';
 
 import Input from './Input/Input'
 import JoinAs from './JoinAs/JoinAs'
 
 
 class SignupForm extends Component {
-    constructor(props){
-        super(props)
-    }
 
     render () {
         const {handleSubmit} = this.props;
         return (
 
             <div className={style.LoginForm}>
-
                 <div className={style.SignupText}>
                     <h2>CREATE AN ACCOUNT</h2>
                     <h4>We always keep your name and email address private.</h4>
                 </div>
-
                 <form onSubmit={handleSubmit} className={style.FormWrapper}>
 
                     <Input name={{one:"firstName", two:'lastName'}}
@@ -48,9 +43,7 @@ class SignupForm extends Component {
                     <div className={style.Fineprint}>
                         <p>By clicking this button, you agree to our <Link to={"/Terms&Conditions"}>Terms of Service.</Link></p>
                     </div>
-
                 </form>
-
             </div>
 
         );

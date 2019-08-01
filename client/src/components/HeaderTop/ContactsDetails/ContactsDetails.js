@@ -11,5 +11,4 @@ function ContactsDetails(props){
         </div>
     )
 }
-
 export default ContactsDetails;

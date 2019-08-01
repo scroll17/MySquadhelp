@@ -17,7 +17,7 @@ function LoginSignUp(props){
     const navigation = ({user, toLogoutClick}) => {
         if (user) {
             let adminPanel = user.role === 2 ?
-                (<Link to={"/adminpanel"} style={{color: "#b212eb"}}><li id={style.Admin}>Admin panel </li></Link>)
+                (<Link to={"/adminpanel"} style={{color: "#3ea9f5"}}><li id={style.Admin}>Admin panel </li></Link>)
                 : null;
 
             return(
@@ -35,7 +35,7 @@ function LoginSignUp(props){
                             <Link to={"/messages"}> <li> Messages </li></Link>
                             <Link to={"/affiliate-dashboard"}> <li> Affiliate Dashboard </li></Link>
                             {adminPanel}
-                            <a onClick={toLogoutClick}><li>Logout</li></a>
+                            <Link to={""} onClick={toLogoutClick} ><li>Logout</li></Link>
                         </ul>
                     }
 

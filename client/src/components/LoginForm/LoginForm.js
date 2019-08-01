@@ -4,10 +4,6 @@ import style from './LoginForm.module.sass';
 import { Field, reduxForm } from 'redux-form';
 
 class LoginForm extends Component {
-    constructor(props){
-        super(props)
-
-    }
 
     renderField = ({input, label, type, meta: { touched, error },}) => (
                 <div className={style.Email}>
@@ -20,9 +16,7 @@ class LoginForm extends Component {
     render () {
         const { handleSubmit, submitting} = this.props;
         return (
-
             <div className={style.LoginForm}>
-
                 <div className={style.LogToYourAc}>
                     <h2>LOGIN TO YOUR ACCOUNT</h2>
                 </div>
@@ -45,7 +39,6 @@ class LoginForm extends Component {
                         <button type="submit" disabled={submitting} label="LOGIN">LOGIN</button>
                     </div>
                 </form>
-
             </div>
 
         );

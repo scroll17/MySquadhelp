@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Link , Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import style from './AdminList.module.sass';
 
 import ListTo from './ListTo/ListTo';
@@ -10,15 +10,8 @@ import connect from "react-redux/es/connect/connect";
 
 import { getAllUsers, banUserById } from "../../actions/actionCreator";
 
-//import { getUser } from '../../'
-
-
 
 class AdminList extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     clickToBan = (userId, isBanned) => {
         this.props.banUserById(userId, isBanned);
     };
@@ -51,9 +44,11 @@ class AdminList extends Component {
                 <ListTo active={this.bannedUsers(users)} clickToItem={this.clickToBan}/>
                 {this.userParser(users)}
 
-                <div className={style.Main}>
-                    <Link to={'/'}>Main</Link>
-                </div>
+                <Link to={'/'} className={style.Main}>
+                    <div>
+                        Main
+                    </div>
+                </Link>
             </div>
         )
     }

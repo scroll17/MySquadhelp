@@ -5,10 +5,8 @@ import { store } from '../../boot/store';
 
 import history from "../../boot/browserHistory";
 
-
 axios.interceptors.request.use(  config => {
     store.dispatch({type: ACTION.USERS_REQUEST});
-    //console.log('config USERS_REQUEST');
 
     config.headers.common['Authorization'] = "Bearer " + localStorage.getItem("accessToken");
     return config;
@@ -16,13 +14,10 @@ axios.interceptors.request.use(  config => {
     return Promise.reject(error);
 });
 
-
 axios.interceptors.response.use(
     response => response,
     async (error) => {
-        const { response: {config} } = error;
-/*        console.log('error:', error.response);
-        console.log('config:', config);*/
+        //const { response: {config} } = error;
         try {
             switch (error.response.status) {
                 case 401:
@@ -38,6 +33,8 @@ axios.interceptors.response.use(
                     store.dispatch({type: ACTION.TOKENS_ACTION_WITH_LOCAL, tokens });
                     store.dispatch({type: ACTION.USERS_RESPONSE, user});
                     break;
+                default:
+                    console.log('default axios:',error.response.status);
             }
         } catch (err) {
             console.log('/axios/config : ',err);
@@ -48,13 +45,10 @@ axios.interceptors.response.use(
     }
 );
 
-
 export const setAuthRequest = (accessToken) => {
     axios.defaults.headers.common['Authorization'] = "Bearer " + accessToken;
 };
-
 export const getAuthRequest = () => {
     axios.defaults.headers.common['Authorization'] = "Bearer " + localStorage.getItem("accessToken");
 };
-
 export default axios;

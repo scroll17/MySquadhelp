@@ -12,7 +12,7 @@ import {
     banUserById,
 } from '../api/rest/restContoller';
 
-import {getAuthRequest} from '../api/axios/config';
+// import {getAuthRequest} from '../api/axios/config'; //TODO
 
 export function* loginUserSaga({user}) {
     //yield put({type: ACTION.USERS_REQUEST});
@@ -34,14 +34,12 @@ export function* loginUserSaga({user}) {
 export function* createUserSaga({user}) {
     //yield put({type: ACTION.USERS_REQUEST});
     try {
-
         const {data} = yield createUser(user);
 
         yield put({type: ACTION.USERS_RESPONSE, user: data.user});
         yield put({type: ACTION.TOKENS_ACTION_WITH_LOCAL, tokens: data.tokenPair});
 
         yield call(history.push, '/');
-
     } catch (e) {
         yield put({type: ACTION.USERS_ERROR, error: e})
     }
@@ -64,7 +62,6 @@ export function* userLogoutSaga({refreshToken}) {
         yield call(userLogout, refreshToken);
 
         localStorage.clear();
-
         yield put({type: ACTION.TOKENS_ACTION_WITH_LOCAL, tokens: {accessToken: "", refreshToken: ""}});
         yield put({type: ACTION.USERS_RESPONSE, user: null});
     } catch (e) {

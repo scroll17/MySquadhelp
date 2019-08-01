@@ -9,7 +9,7 @@ import NotFoundPages from "./pages/NotFoundPages/NotFoundPages";
 
 import history from "./boot/browserHistory";
 
-import LoggedInMainPage from './components/Hoc/loggedInMainPage'//TODO
+//import LoggedInMainPage from './components/Hoc/loggedInMainPage'//TODO
 
 import AdminListPage from './pages/AdminListPage/AdminListPage'
 
@@ -20,11 +20,6 @@ import UserLoader from './components/Route/UserLoader';
 import PrivateRoute from './components/Route/PrivateRoute';
 
 class App extends Component{
-    constructor(props){
-        super(props)
-    }
-
-
     IfUserIsLoggedIn(component){
         if(this.props.user){
             return () => <Redirect to='/'/>

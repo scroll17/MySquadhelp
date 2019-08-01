@@ -1,22 +1,12 @@
 import React, { Component } from 'react';
-import { Route, Switch, Redirect } from "react-router-dom";
-import { Router } from 'react-router'
 
-
-
-import { getUser, createStoreResponse } from "../../actions/actionCreator";
+import { getUser } from "../../actions/actionCreator";
 import connect from "react-redux/es/connect/connect";
 
 class UserLoader extends Component{
-    constructor(props){
-        super(props)
-    }
-
     componentDidMount() {
-        if(!this.props.user && localStorage.getItem("accessToken")) {
+        if (!this.props.user && localStorage.getItem("accessToken")) {
             return this.props.getUser();
-        }else {
-            return this.props.createStoreResponse()
         }
     }
 
@@ -32,6 +22,5 @@ const mapStateToProps = (state) => ({
 });
 const mapDispatchToProps = (dispatch) => ({
     getUser: () => dispatch(getUser()),
-    createStoreResponse: () => dispatch(createStoreResponse()),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(UserLoader);
