@@ -17,7 +17,7 @@ function HeaderBottom(){
                         </Link>
 
                         <div className={style.List} >
-                            <ul>
+                            <ul className={style.HeaderList}>
                                 <ListItem>
                                     Name Ideas
                                     <>dfgdf</>

@@ -2,7 +2,7 @@
   box-sizing: border-box
 
   .Container
-    width: 100%
+    max-width: 1170px
     padding-right: 15px
     padding-left: 15px
     margin-right: auto
@@ -14,7 +14,7 @@
 
       display: flex
       flex-direction: row
-      justify-content: center
+      justify-content: space-between
       align-items: center
 
 
@@ -39,25 +39,27 @@
         padding-left: 15px
 
 
-        ul
+        .HeaderList
           padding: 0
           margin: 0
           list-style: none
 
           display: flex
           flex-direction: row
-          justify-content: space-around
-          flex-shrink: 2
+          justify-content: space-evenly
+
+          div
+            flex-shrink: 10
+            font-weight: 300
 
 
       .StartContest
-        width: 16.66666667%
-        flex-shrink: 5
+        flex-shrink: 0
         a
           border: 2px solid #28d2d0
-          padding: 15px 18px
+          padding: 0.8vw 0.9vw
           background: none
-          font: 14px "Lato"
+
 
           color: #28d2d0
           border-radius: 5px
