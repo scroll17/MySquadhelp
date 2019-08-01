@@ -59,11 +59,15 @@ class AdminList extends Component {
     }
 
     componentDidMount() {
-        this.props.getAllUsers();
+        const { users, user} = this.props;
+        if(!!user && users.length <= 0){
+            this.props.getAllUsers();
+        }
     }
 }
 
 const mapStateToProps = (state) => ({
+    user: state.userReducers.user,
     users: state.userReducers.users,
 });
 

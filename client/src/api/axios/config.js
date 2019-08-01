@@ -7,6 +7,9 @@ import history from "../../boot/browserHistory";
 
 
 axios.interceptors.request.use(  config => {
+    store.dispatch({type: ACTION.USERS_REQUEST});
+    //console.log('config USERS_REQUEST');
+
     config.headers.common['Authorization'] = "Bearer " + localStorage.getItem("accessToken");
     return config;
 }, error => {
@@ -29,7 +32,6 @@ axios.interceptors.response.use(
                 case 419:
                     //console.clear(); //TODO console._commandLineAPI.clear();
 
-                    store.dispatch({type: ACTION.USERS_REQUEST});
                     const {data: {tokenPair,  user}} = await axios.post(`${restURL}/refresh`, {refreshToken: localStorage.getItem("refreshToken")});
                     const tokens = tokenPair;
 

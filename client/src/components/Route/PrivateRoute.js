@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Redirect } from "react-router-dom";
 
-import Loader from 'react-loader-spinner';
+import { MoonLoader } from "react-spinners";
 
 import {getUser} from "../../actions/actionCreator";
 import connect from "react-redux/es/connect/connect";
@@ -12,8 +12,11 @@ class PrivateRoute extends Component{
         super(props)
     }
 
+
     renderPage(){
-        if (!this.props.user){
+        console.log('user: ', !this.props.user,' isFetching: ', this.props.isFetching === "answered");
+
+        if (!this.props.user && this.props.isFetching === 'answered'){
             return <Redirect to='/notfound' />;
             if(this.props.user.role !== 2 ) return <Redirect to='/notfound' />;
         }
@@ -23,20 +26,16 @@ class PrivateRoute extends Component{
     }
 
     static renderLoader() {
-                console.log('renderLoader');
-        return (<Loader
-            type="ThreeDots"
-            color="#000000"
-            height="100px"
-            width="100px"
-        />);
+        return (<MoonLoader
+                size={200}
+            />);
     }
 
     render(){
-            console.log('isFetching',this.props.isFetching);
+        const { isFetching } = this.props;
         return(
             <>
-                {!this.props.isFetching ?
+                {isFetching === "requested" ?
                     PrivateRoute.renderLoader()
                     :
                     this.renderPage()
@@ -44,13 +43,20 @@ class PrivateRoute extends Component{
             </>
         )
     }
-
+/*
     componentDidMount() {
-/*        if (!this.props.user){
-            return <Redirect to='/notfound' />;
-            if(this.props.user.role !== 2 ) return <Redirect to='/notfound' />;
-        }*/
-    }
+        console.log('Update by', this.props.isFetching);
+        if(!!this.props.isFetching) return true;
+    }*/
+/*
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+
+        console.log('shouldComponentUpdate', this.props.isFetching === "requested" && nextProps.isFetching === "answered");
+
+
+        if(this.props.isFetching === "requested" && nextProps.isFetching === "answered"){ return true }
+        else{ return false }
+    }*/
 }
 
 const mapStateToProps = (state) => ({

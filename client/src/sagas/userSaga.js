@@ -15,7 +15,7 @@ import {
 import {getAuthRequest} from '../api/axios/config';
 
 export function* loginUserSaga({user}) {
-    yield put({type: ACTION.USERS_REQUEST});
+    //yield put({type: ACTION.USERS_REQUEST});
     try {
 
         const {data} = yield loginUser(user);
@@ -32,7 +32,7 @@ export function* loginUserSaga({user}) {
 
 
 export function* createUserSaga({user}) {
-    yield put({type: ACTION.USERS_REQUEST});
+    //yield put({type: ACTION.USERS_REQUEST});
     try {
 
         const {data} = yield createUser(user);
@@ -48,6 +48,7 @@ export function* createUserSaga({user}) {
 }
 
 export function* getUserSaga() {
+    //yield put({type: ACTION.USERS_REQUEST});
     try {
             //yield call(getAuthRequest);
             const {data} = yield getUser();
@@ -58,7 +59,7 @@ export function* getUserSaga() {
 }
 
 export function* userLogoutSaga({refreshToken}) {
-
+    //yield put({type: ACTION.USERS_REQUEST});
     try {
         yield call(userLogout, refreshToken);
 
@@ -73,6 +74,7 @@ export function* userLogoutSaga({refreshToken}) {
 
 
 export function* getAllUserSaga() {
+    //yield put({type: ACTION.USERS_REQUEST});
     try {
         const {data} = yield call(getAllUser);
         yield put({type: ACTION.USERS_RESPONSE, users: data});
@@ -82,7 +84,7 @@ export function* getAllUserSaga() {
 }
 
 export function* banUserByIdSaga({userId, isBanned}) {
-    yield  put({type: ACTION.USERS_REQUEST});
+    //yield  put({type: ACTION.USERS_REQUEST});
     try {
         const {data} = yield banUserById(userId, isBanned);
 

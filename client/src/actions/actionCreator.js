@@ -1,7 +1,7 @@
 import ACTION from './actiontsTypes';
 
-export const createError = error => ({ //TODO
-  type: ACTION.USERS_ERROR,
+export const createStoreResponse = error => ({ //TODO
+  type: ACTION.USERS_RESPONSE,
   error
 });
 
