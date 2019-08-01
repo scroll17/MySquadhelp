@@ -17,7 +17,8 @@ axios.interceptors.request.use(  config => {
 axios.interceptors.response.use(
     response => response,
     async (error) => {
-        //const { response: {config} } = error;
+        /*const { response: {config} } = error;*/
+
         try {
             switch (error.response.status) {
                 case 401:

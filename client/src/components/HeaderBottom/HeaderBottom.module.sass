@@ -1,0 +1,70 @@
+.Header
+  box-sizing: border-box
+
+  .Container
+    width: 100%
+    padding-right: 15px
+    padding-left: 15px
+    margin-right: auto
+    margin-left: auto
+
+    .Row
+      margin-right: -15px
+      margin-left: -15px
+
+      display: flex
+      flex-direction: row
+      justify-content: center
+      align-items: center
+
+
+      .Link //TODO
+        min-height: 1px
+        padding-right: 15px
+        padding-left: 15px
+
+      .Logo
+        background:
+          image: url("https://www.squadhelp.com/images/squadhelp-logo-color.jpg")
+          position: center
+          repeat: no-repeat
+          size: contain
+        width: 15vw
+        height: 51px
+
+      .List
+        width: 66.66666667%
+        min-height: 1px
+        padding-right: 15px
+        padding-left: 15px
+
+
+        ul
+          padding: 0
+          margin: 0
+          list-style: none
+
+          display: flex
+          flex-direction: row
+          justify-content: space-around
+          flex-shrink: 2
+
+
+      .StartContest
+        width: 16.66666667%
+        flex-shrink: 5
+        a
+          border: 2px solid #28d2d0
+          padding: 15px 18px
+          background: none
+          font: 14px "Lato"
+
+          color: #28d2d0
+          border-radius: 5px
+          text-transform: uppercase
+          font-weight: 500
+          text-decoration: none
+
+          &:hover
+            color: white
+            background-color: #28d2d0
