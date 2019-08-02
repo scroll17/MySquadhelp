@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import style from "./MainPages.module.sass";
 import HeaderTop from "../../components/HeaderTop/HeaderTop";
 import HeaderBottom from "../../components/HeaderBottom/HeaderBottom";
+import BannerHome from '../../components/BannerHome/BannerHome'
+import HowItWorksHome from '../../components/HowItWorksHome/HowItWorksHome'
 
 class MainPages extends Component{
     render() {
@@ -10,6 +12,8 @@ class MainPages extends Component{
             <header className={style.Header}>
                 <HeaderTop />
                 <HeaderBottom />
+                <BannerHome />
+                <HowItWorksHome />
             </header>
         )
     }

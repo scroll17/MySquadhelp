@@ -9,6 +9,8 @@ function DropDownList(props){
         return (
             <ul className={style.DropMenu} style={visible}>
                 {props.elements.map( item => {
+                    //const child = item.props.children;
+                    if(item.type === "hr") return <hr />;
                     return (
                         <Link to={"/"}>
                             <li key={item.props.children}>{item}</li>

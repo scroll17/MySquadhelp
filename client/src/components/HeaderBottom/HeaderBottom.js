@@ -4,6 +4,7 @@ import style from './HeaderBottom.module.sass';
 import { Link } from "react-router-dom";
 
 import ListItem from './ListItem/ListItem'
+import Button from '../Button/Button'
 
 function HeaderBottom(){
 
@@ -20,34 +21,62 @@ function HeaderBottom(){
                             <ul className={style.HeaderList}>
                                 <ListItem>
                                     Name Ideas
-                                    <>dfgdf</>
+                                    <>Beauty</>
+                                    <>Consulting</>
+                                    <>E-commerce</>
+                                    <>Fashion & Clothing</>
+                                    <>Finance</>
+                                    <>Real Estate</>
+                                    <>Tech</>
+                                    <hr/>
+                                    <>More Categories</>
                                 </ListItem>
 
                                 <ListItem>
                                     Contests
-                                    <>dfgdfg</>
+                                    <>How it Works</>
+                                    <>Pricing</>
+                                    <>Agency Services</>
+                                    <hr />
+                                    <>Active Contests</>
+                                    <>Winners</>
+                                    <>Leaderboard</>
+                                    <hr />
+                                    <>Become A Creative</>
                                 </ListItem>
 
                                 <ListItem>
                                     Our Work
-                                    <>Bedfgdfgauty</>
+                                    <>Names</>
+                                    <>Taglines</>
+                                    <>Logos</>
+                                    <hr />
+                                    <>Testimonials</>
                                 </ListItem>
 
                                 <ListItem>
                                     Names For Sale
-                                    <>dfgd</>
+                                    <>Popular Names</>
+                                    <>Short Names</>
+                                    <>Intriguing Names</>
+                                    <>Names By Category</>
+                                    <>Visual Name Generator</>
+                                    <hr />
+                                    <>Shell Your Domains</>
                                 </ListItem>
 
                                 <ListItem>
                                     Blog
-                                    <>fgdfg</>
+                                    <>Ultimate Naming Guide</>
+                                    <>Poetic Devices in Business Naming</>
+                                    <>Crowded Bar Theory</>
+                                    <hr />
+                                    <>All Articles</>
                                 </ListItem>
                             </ul>
                         </div>
 
-                        <div className={style.StartContest}>
-                            <Link to={'/contesttype'}>start contest</Link>
-                        </div>
+                        <Button link={"/contesttype"}>start contest</Button>
 
                     </div>
                 </div>
