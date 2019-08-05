@@ -1,22 +1,20 @@
 import React, { Component } from 'react';
 
-import style from "./MainPages.module.sass";
+import style from "./ContestTypePage.module.sass";
 import HeaderTop from "../../components/HeaderTop/HeaderTop";
 import HeaderBottom from "../../components/HeaderBottom/HeaderBottom";
-import BannerHome from '../../components/MainHome/BannerHome/BannerHome'
-import HowItWorksHome from '../../components/MainHome/HowItWorksHome/HowItWorksHome'
+import ContestSteps from '../../components/ContestType/ContestSteps'
 
-class MainPages extends Component{
+class ContestTypePage extends Component{
     render() {
         return (
             <header className={style.Header}>
                 <HeaderTop />
                 <HeaderBottom />
-                <BannerHome />
-                <HowItWorksHome />
+                <ContestSteps />
             </header>
         )
     }
 }
 
-export default MainPages;
+export default ContestTypePage;

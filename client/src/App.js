@@ -6,6 +6,7 @@ import MainPages from './pages/MainPages/MainPages'
 import LoginPages from './pages/LoginPages/LoginPages'
 import SignupPage from './pages/SignupPage/SignupPage';
 import NotFoundPages from "./pages/NotFoundPages/NotFoundPages";
+import ContestTypePage from "./pages/ContestTypePage/ContestTypePage";
 
 import history from "./boot/browserHistory";
 
@@ -35,7 +36,7 @@ class App extends Component{
                         <Route exact path={"/"}  component={MainPages}/>
                         <Route path={"/login"} component={this.IfUserIsLoggedIn(LoginPages)}/>
                         <Route path={"/signup"} component={this.IfUserIsLoggedIn(SignupPage)}/>
-{/*                        <Route path={"/adminpanel"}  component={LoggedInMainPage(AdminListPage)}/>*/}
+                        <Route path={"/contesttype"} component={ContestTypePage}/>
                         <PrivateRoute requireRole={2} path={"/adminpanel"}  component={AdminListPage} />
                         <Route component={ NotFoundPages } />
                     </Switch>

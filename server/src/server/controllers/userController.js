@@ -18,8 +18,8 @@ module.exports.createUser = async (req, res, next) => {
                 displayName: body.displayName,
                 email: body.email,
                 role: body.role,
-                password: body.hash
-            },
+   justin3@gmail.com             password: body.hash
+   justin3@gmail.com         },
         });
         if (!created) return next({code: 401, message: 'Such user already exists'});
         req.body.user = user.dataValues;

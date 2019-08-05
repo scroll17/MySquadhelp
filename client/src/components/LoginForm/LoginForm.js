@@ -1,20 +1,19 @@
-import React, {Component} from 'react';
+import React from 'react';
 import style from './LoginForm.module.sass';
 
 import { Field, reduxForm } from 'redux-form';
 
-class LoginForm extends Component {
+function LoginForm(props){
 
-    renderField = ({input, label, type, meta: { touched, error },}) => (
+    const renderField = ({input, placeholder, type, meta: { touched, error },}) => (
                 <div className={style.Email}>
-                    <input {...input} type={type} placeholder={label} className={style.InputNormal}/>
+                    <input {...input} type={type} placeholder={placeholder} className={style.InputNormal}/>
                     {touched && error && <div className={style.errorContainer}>{error}</div>}
                 </div>
         );
 
+        const { handleSubmit, submitting} = props;
 
-    render () {
-        const { handleSubmit, submitting} = this.props;
         return (
             <div className={style.LoginForm}>
                 <div className={style.LogToYourAc}>
@@ -42,7 +41,7 @@ class LoginForm extends Component {
             </div>
 
         );
-    }
+
 }
 
 LoginForm = reduxForm ({

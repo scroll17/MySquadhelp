@@ -39,7 +39,7 @@ axios.interceptors.response.use(
             }
         } catch (err) {
             console.log('/axios/config : ',err);
-            store.dispatch({type: ACTION.TOKENS_ERROR, err});
+            store.dispatch({type: ACTION.TOKENS_ERROR, error: err});
         }
 
         //return axios.request(config); //TODO Делает повторный звпрос неудачного запроса
