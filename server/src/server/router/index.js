@@ -11,10 +11,7 @@ const refreshValidationToken = require("../middlewares/refreshValidationToken");
 
 const deleteTokenPair = require('../middlewares/deleteTokenPair');
 
-//const defineTheRole = require("../middlewares/defineTheRole");
-
-
-
+const defineTheRole = require("../middlewares/defineTheRole");
 
 
 const router = express.Router();
@@ -32,8 +29,9 @@ router.delete('/logout',  deleteTokenPair);
 
 
 // ---------------- Admin ---------------
-router.put('/user/:id', userController.updateUsersById);
-router.get('/AllUser', userController.getAllUsers);
+router.put('/user/:id', defineTheRole("/user/:id"),  userController.updateUsersById);
+router.get('/AllUser', defineTheRole("/AllUser"),  userController.getAllUsers);
+
 
 
 module.exports = router;

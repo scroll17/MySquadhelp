@@ -1,14 +1,18 @@
-const NotFound = require("./NotFoundError");
-const ForbiddenError = require("./ForbiddenError");
-const GoneError = require("./GoneError");
+const NotFound = require("./NotFound");
+const Forbidden = require("./Forbidden");
+const Gone = require("./Gone");
 const InvalidCredentials = require("./InvalidCredentials");
+const Conflict = require("./Conflict");
+const Locked = require("./Locked");
 
 const AuthenticationTimeout = require("./AuthenticationTimeout");
 
 module.exports = {
     NotFound,
-    ForbiddenError,
-    GoneError,
+    Forbidden,
+    Gone,
     InvalidCredentials,
-    AuthenticationTimeout
+    AuthenticationTimeout,
+    Conflict,
+    Locked,
 };

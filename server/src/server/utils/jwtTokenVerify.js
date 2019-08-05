@@ -6,9 +6,9 @@ const util = require('util');
 const singToken = util.promisify(jwtTokenVerify.sign);
 const verifyToken = util.promisify(jwtTokenVerify.verify);
 
-module.exports.jwtSignAccsess = (email, name, userRole) => {
+module.exports.jwtSignAccsess = (email, name, role, id) => {
     try{
-       return singToken({email: email, name: name, userRole: userRole }, ACSSES_SECRET, {expiresIn: EXPIRES_IN_ACSSES});
+        return singToken({email: email, name: name, role: role, id: id }, ACSSES_SECRET, {expiresIn: EXPIRES_IN_ACSSES});
     }catch (err) {
         return next(err)
     }

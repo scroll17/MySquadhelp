@@ -1,5 +1,6 @@
 
 const moment = require('moment');
+const { ROLE } = require('../utils/consts');
 
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
@@ -26,7 +27,6 @@ module.exports = (sequelize, DataTypes) => {
     displayName: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
       validate: {
         notEmpty: true,
       },
@@ -46,20 +46,11 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true,
       },
     },
-/*    gender: {
+    role: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        notEmpty: true,
-      },
-    },*/
-    role: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue: 0,
-      validate: {
-        min: 0,
-        max: 2,
+        isIn: ROLE,
       },
     },
     isActive: {

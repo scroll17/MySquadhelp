@@ -5,7 +5,6 @@ const { User, RefreshToken } = require('../models/index');
 const sequelize = db.sequelize;
 
 const { verifyToken } = require('../utils/jwtTokenVerify');
-const { InvalidCredentials } = require('../errors/errors');
 
 module.exports.createUser = async (req, res, next) => {
     console.log(req.body);
@@ -18,8 +17,8 @@ module.exports.createUser = async (req, res, next) => {
                 displayName: body.displayName,
                 email: body.email,
                 role: body.role,
-   justin3@gmail.com             password: body.hash
-   justin3@gmail.com         },
+                password: body.hash
+            },
         });
         if (!created) return next({code: 401, message: 'Such user already exists'});
         req.body.user = user.dataValues;
@@ -35,6 +34,9 @@ module.exports.loginUser = async (req,res,next) => {
     try{
         const foundUser = await User.findOne({ where: {email: email}});
         if(!foundUser) return next(new error.NotFound());
+
+        if(foundUser.dataValues.isBanned === "true") return next(new error.Locked());
+
         req.body.user = foundUser.dataValues;
         req.body.password = password;
         next()

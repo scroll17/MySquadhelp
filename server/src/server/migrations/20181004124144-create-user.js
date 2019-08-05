@@ -1,4 +1,6 @@
 'use strict';
+const { ROLE } = require('../utils/consts');
+
 module.exports = {
     up: (queryInterface, Sequelize) => {
         return queryInterface.createTable('Users', {
@@ -19,7 +21,6 @@ module.exports = {
             displayName: {
                 type: Sequelize.STRING,
                 allowNull: false,
-                unique: true,
                 validate: {
                     notEmpty: true,
                 }
@@ -37,13 +38,11 @@ module.exports = {
                 allowNull: false,
             },
             role: {
-                type: Sequelize.INTEGER,
+                type: Sequelize.STRING,
                 allowNull: false,
-                defaultValue: 0,
                 validate: {
                     allowNull: false,
-                    max: 2,
-                    min: 0,
+                    isIn: ROLE,
                 }
             },
             isActive: {

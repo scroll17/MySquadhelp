@@ -7,7 +7,7 @@ module.exports = async (req, res, next) => {
     let tokenPair = {};
 
     try{
-        tokenPair.accessToken = await jwtSignAccsess(user.email, user.firstName, user.role);
+        tokenPair.accessToken = await jwtSignAccsess(user.email, user.firstName, user.role, user.id);
         tokenPair.refreshToken = await jwtSignRehresh(user.id);
 
         await RefreshToken.create({userId: user.id, tokenString: tokenPair.refreshToken});
