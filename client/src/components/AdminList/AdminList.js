@@ -2,26 +2,19 @@ import React, {Component} from 'react';
 import { Link } from "react-router-dom";
 import style from './AdminList.module.sass';
 
+import connect from "react-redux/es/connect/connect";
+
+import {  toast } from 'react-toastify'; //TODO
+import 'react-toastify/dist/ReactToastify.css';
+
+import { getAllUsers, banUserById } from "../../actions/actionCreator";
 import ListTo from './ListTo/ListTo';
 import ListItem from './ListItem/ListItem';
 
 
-import connect from "react-redux/es/connect/connect";
-
-import { ToastContainer, toast } from 'react-toastify'; //TODO
-import 'react-toastify/dist/ReactToastify.css';
-
-import { getAllUsers, banUserById } from "../../actions/actionCreator";
-
-
 class AdminList extends Component {
-
-
     clickToBan = (userId, isBanned) => {
         this.props.banUserById(userId, isBanned);
-        toast.error("Error Notification !", {
-            position: toast.POSITION.TOP_RIGHT
-        });
     };
 
     bannedUsers = (users) =>{
@@ -38,38 +31,39 @@ class AdminList extends Component {
                     status={user.isBanned}
                     id={user.id}
                     clickToItem={this.clickToBan}
-                    key={user.id} //TODO id => email
+                    key={user.email}
                 />
             )
         });
     }
 
-
     render() {
         const { users } = this.props;
         return (
             <>
-                <div className={style.List} onMouseDown={(e) => {e.preventDefault()}}>
+                <div className={style.list} onMouseDown={(e) => {e.preventDefault()}}>
                     <ListTo active={this.bannedUsers(users)} clickToItem={this.clickToBan}/>
                     {this.userParser(users)}
 
-                    <Link to={'/'} className={style.Main}>
+                    <Link to={'/'} className={style.main}>
                         <div>
                             Main
                         </div>
                     </Link>
                 </div>
-
             </>
         )
     }
 
     componentDidMount() {
+        const { users, user, error} = this.props;
+
         if(this.props.error !== null){
-            console.log(this.props.error);
-            alert(this.props.error)
+            toast.error(error.response.data.statusText, {
+                position: toast.POSITION.TOP_RIGHT
+            });
         }
-        const { users, user} = this.props;
+
         if(!!user && users.length <= 0){
             this.props.getAllUsers();
         }

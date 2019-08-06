@@ -7,9 +7,9 @@ import { Link } from "react-router-dom";
 function DropDownList(props){
     const visible = props.visible ? {display: "block"} : {display: "none"};
         return (
-            <ul className={style.DropMenu} style={visible}>q
+            <ul className={style.dropMenu} style={visible}>
                 {props.elements.map( item => {
-                    const key = item.props.children === undefined ? `${Math.random()}12gg45yy` : item.props.children;
+                    const key = item.props.children === undefined ? item.props.id : item.props.children;
                     if(item.type === "hr") return <hr key={key}/>;
                     return (
                         <Link to={"/"} key={key}>

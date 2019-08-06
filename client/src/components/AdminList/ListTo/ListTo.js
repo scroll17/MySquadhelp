@@ -15,18 +15,18 @@ function ListTo(props){
         if(namesLength > 0) {
             return bannedUsers.map( (user,index) => {
                 const coma = (index === namesLength-1 ) ? " " : ", ";
-                return <span key={user.id} onClick={()=>props.clickToItem(user.id, user.isBanned)}>{ `${user.firstName} id:${user.id}` }{coma} </span>
+                return <span key={user.id} onClick={() => props.clickToItem(user.id, user.isBanned)}>{ `${user.firstName} id:${user.id}` }{coma} </span>
             })
         }
         return '';
     };
 
     return (
-        <div className={style.ListTo}>
-            <div className={style.To}>
+        <div className={style.listTo}>
+            <div className={style.to}>
                 To:
             </div>
-            <div className={style.ListName}>
+            <div className={style.listName}>
                 {renderNames()}
             </div>
         </div>

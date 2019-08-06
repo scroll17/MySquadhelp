@@ -1,12 +1,11 @@
-.LoginForm
+.loginForm
   padding: 10px 20px 30px
   max-width: 595px
   margin:  0 auto //80px auto 0 auto
   display: flex
   flex-direction: column
 
-
-  .Form
+  .form
     display: flex
     flex-direction: column
     margin: 0
@@ -14,14 +13,15 @@
     width: 100%
     text-align: center
 
-    .Email
+    .email
       display: flex
+      flex-direction: column
       flex: 1 0 auto
       min-width: 285px
       box-sizing: border-box
       padding: 0 14px 1.15rem
 
-      .InputNormal
+      .inputNormal
         color: #9CA8B7
         margin: 0
         width: 100%
@@ -32,8 +32,10 @@
         border: 2px solid white
         border-radius: 4px
 
+      .inputError
+        border: 2px solid #f00
 
-  .LogToYourAc
+  .logToYourAc
     border: 0
     width: 100%
     text-align: center
@@ -49,7 +51,7 @@
       padding-bottom: 10px
       line-height: 1.1
 
-  .Buttom
+  .buttom
     flex: 1 0 auto
     min-width: 285px
     box-sizing: border-box
@@ -67,7 +69,7 @@
       font-weight: 700
       cursor: pointer
 
-.Field
+.field
   position: relative
   flex: 1 0 auto
   min-width: 297px
@@ -76,6 +78,7 @@
 
 
 .errorContainer
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
   margin-top: 15px
   border: 1px solid #b72522
   font-size: 14px

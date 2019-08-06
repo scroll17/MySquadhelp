@@ -5,7 +5,6 @@ import style from './BannerHome.module.sass';
 
 import Button from '../../Button/Button'
 
-
 function BannerHome(){
 
         const ivites = [
@@ -31,16 +30,16 @@ function BannerHome(){
 
 
         return (
-            <div className={style.Main}>
+            <div className={style.main}>
 
-                <div className={style.CarouselSide}>
-                    <div className={style.BannerHome}>
-                        <div className={style.Container}>
-                            <div className={style.BannerContent}>
+                <div className={style.carouselSide}>
+                    <div className={style.bannerHome}>
+                        <div className={style.container}>
+                            <div className={style.bannerContent}>
 
-                                <h1 className={style.LoadingBar}>
+                                <h1 className={style.loadingBar}>
                                     <span>Find the Perfect Name for</span>
-                                    <span className={style.WordsWrapper}>{ivites[sentence]}</span>
+                                    <span className={style.wordsWrapper}>{ivites[sentence]}</span>
                                 </h1>
 
                                 <p>
@@ -50,13 +49,12 @@ function BannerHome(){
                                 </p>
 
 
-
                                 <ul>
-                                    <li className={style.StartContest}>
+                                    <li className={style.startContest}>
                                         <Button link={"/contesttype"}>start a contest</Button>
                                     </li>
-                                    <li className={style.LiOr}>Or</li>
-                                    <li className={style.ExploreNames}>
+                                    <li className={style.liOr}>Or</li>
+                                    <li className={style.exploreNames}>
                                         <Button link={"/premium-domains-for-sale/all"}>Explore Names For Sale</Button>
                                     </li>
                                 </ul>

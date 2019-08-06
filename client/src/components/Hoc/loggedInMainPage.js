@@ -13,14 +13,6 @@ export default function(WrappedComponent) {
             this.props.getUser();
         }
 
-        /*checkUserToken = () => {
-            if(this.props.user){
-                return <WrappedComponent/>
-            }else{
-                return
-            }
-        };
-*/
         render() {
             return <WrappedComponent/>
         }

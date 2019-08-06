@@ -2,7 +2,6 @@ const {jwtSignAccsess, jwtSignRehresh } = require('../utils/jwtTokenVerify');
 const { RefreshToken } = require('../models/index');
 
 module.exports = async (req, res, next) => {
-
     const user = Object.assign({},req.body.user);
     let tokenPair = {};
 

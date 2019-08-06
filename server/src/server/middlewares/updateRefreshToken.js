@@ -7,7 +7,6 @@ const { RefreshToken } = require('../models/index');
 
 module.exports = async (req, res, next) => {
     //let transaction = await sequelize.transaction();
-
     const { user } = Object.assign({},req);
     let tokenPair = {};
 

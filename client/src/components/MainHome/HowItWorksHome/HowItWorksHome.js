@@ -1,4 +1,4 @@
-import React, { useState, useEffect }  from 'react';
+import React  from 'react';
 import style from './HowItWorksHome.module.sass';
 
 import Button from '../../Button/Button'
@@ -10,32 +10,32 @@ function HowItWorksHome(){
     const prevIcon = <span className={style.carouselIconPrev}><i className="fas fa-chevron-left"/></span>;
     const nextIcon = <span className={style.carouselIconNext}><i className="fas fa-chevron-right"/></span>;
 
-    const [index, setIndex] = useState(0);
+/*    const [index, setIndex] = useState(0);
     const [direction, setDirection] = useState(null);
 
     const handleSelect = (selectedIndex, e) => {
         setIndex(selectedIndex);
         setDirection(e.direction);
-    };
+    };*/
 
         return (
-            <div className={style.Main}>
-                <div className={style.Container}>
-                    <div className={style.Row}>
+            <div className={style.main}>
+                <div className={style.container}>
+                    <div className={style.row}>
 
-                        <ul className={style.NavTabs}>
-                            <li  className={style.Active}>
+                        <ul className={style.navTabs}>
+                            <li  className={style.active}>
                                 <span>Names</span>
                             </li>
-                            <li  className={style.Larged}>
+                            <li  className={style.larged}>
                                 <span>Taglines & Slogans</span>
                             </li>
-                            <li  className={style.Larged}>
+                            <li  className={style.larged}>
                                 <span>Logo Designs</span>
                             </li>
                         </ul>
 
-                        <div className={style.TabContent}>
+                        <div className={style.tabContent}>
                             <Carousel
                                 indicators={false}
                                 pauseOnHover={true}
@@ -44,27 +44,27 @@ function HowItWorksHome(){
                                 prevIcon={prevIcon}
                             >
                                 <Carousel.Item>
-                                    <div className={style.Carousel}>
-                                        <div className={style.Item}
+                                    <div className={style.carousel}>
+                                        <div className={style.item}
                                             style={{backgroundImage: "url(https://www.squadhelp.com/story_images/visual_images/B_2_15.jpg)"}}
                                         />
-                                        <div className={style.Item}
+                                        <div className={style.item}
                                              style={{backgroundImage: "url(https://www.squadhelp.com/story_images/visual_images/B_2_15.jpg)"}}
                                         />
-                                        <div className={style.Item}
+                                        <div className={style.item}
                                              style={{backgroundImage: "url(https://www.squadhelp.com/story_images/visual_images/B_2_15.jpg)"}}
                                         />
                                     </div>
                                 </Carousel.Item>
                                 <Carousel.Item>
-                                    <div className={style.Carousel}>
-                                        <div className={style.Item}
+                                    <div className={style.carousel}>
+                                        <div className={style.item}
                                              style={{backgroundImage: "url(https://www.squadhelp.com/story_images/visual_images/B_2_15.jpg)"}}
                                         />
-                                        <div className={style.Item}
+                                        <div className={style.item}
                                              style={{backgroundImage: "url(https://www.squadhelp.com/story_images/visual_images/B_2_15.jpg)"}}
                                         />
-                                        <div className={style.Item}
+                                        <div className={style.item}
                                              style={{backgroundImage: "url(https://www.squadhelp.com/story_images/visual_images/B_2_15.jpg)"}}
                                         />
                                     </div>

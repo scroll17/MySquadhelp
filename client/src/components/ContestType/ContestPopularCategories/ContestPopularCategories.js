@@ -1,4 +1,4 @@
-import React, { useState, useEffect }  from 'react';
+import React from 'react';
 import style from './ContestPopularCategories.module.sass';
 
 import ItemContestType from '../ItemContestType/ItemContestType'

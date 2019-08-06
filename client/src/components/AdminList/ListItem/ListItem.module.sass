@@ -4,7 +4,7 @@
   height: 28px
   margin: 22px 17px 22px 0
 
-.ListItem
+.listItem
   display: flex
   flex-direction: row
   justify-content: space-between
@@ -16,19 +16,18 @@
   i
     color: white
     padding: 6px
-  .Active
+  .active
     @extend %circle
     background-color: #48C1C2
-  .Passive
+  .passive
     @extend %circle
     background-color: #DBE0E6
 
-  .AvatarAndData
+  .avatarAndData
     display: flex
     flex-direction: row
     justify-content: space-between
-
-    .Avatar
+    .avatar
       width: 48px
       height: 48px
       background-size: cover
@@ -36,13 +35,12 @@
       margin: 0 16px
       background-image: url("../../../images/User.jpg")
 
-
-  .NameAndLevel
+  .nameAndLevel
     display: flex
     flex-direction: column
     text-align: left
 
-    .ListItemLevel
+    .listItemLevel
       color: #0B3157
       font-family: Montserrat
       font-size: 14px
@@ -51,7 +49,7 @@
       line-height: 17px
       opacity: 0.5
 
-    .ListItemName
+    .listItemName
       color: #0B3157
       font-family: Montserrat
       font-size: 16px

@@ -15,20 +15,29 @@ import schema from'../../models/yupValidation';
 class LoginPage extends React.Component {
 
     onLoginSubmit = async (values) => {
+
         const resEmail = await yup.reach(schema, 'email').isValid(values.email);
-        if (!resEmail) {
+
+        if (!resEmail || !values.email) {
             throw new SubmissionError({
                 email: 'Email is not valid format',
                 _error: 'Login failed!',
             });
         }
+        if(!values.password){
+            throw new SubmissionError({
+                password: 'Password cannot be empty',
+                _error: 'Password failed!',
+            });
+        }
+
         return this.props.onLoginSubmit(values)
     };
 
     render(){
         return (
-            <main className={style.UserSignupFlow}>
-                <div className={style.Container}>
+            <main className={style.userSignupFlow}>
+                <div className={style.container}>
                     <HeaderLoginAndSignup>Signup</HeaderLoginAndSignup>
                     <LoginForm onSubmit={this.onLoginSubmit}/>
                 </div>

@@ -5,12 +5,12 @@ import {Link} from "react-router-dom";
 
 function NotFoundPages() {
     return (
-        <div className={style.NotFoundPages}>
-            <div className={style.NameError}>404</div>
-            <div className={style.ErrorMassage}>Not Found !</div>
+        <div className={style.notFoundPages}>
+            <div className={style.nameError}>404</div>
+            <div className={style.errorMassage}>Not Found !</div>
 
             <Link to={'/'}>
-                <div className={style.Logo} />
+                <div className={style.logo} />
             </Link>
 
         </div>

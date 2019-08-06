@@ -3,8 +3,8 @@ import style from './ContactsDetails.module.sass';
 
 function ContactsDetails(props){
     return (
-        <div className={style.ContactsDetails}>
-            <div className={style.Contacts}>
+        <div className={style.contactsDetails}>
+            <div className={style.contacts}>
                 <i className="fa fa-phone"/>
                 <a href={"tel:(877)355-3585"}>(877) 355-3585</a>
             </div>

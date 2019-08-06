@@ -1,5 +1,3 @@
-
-const moment = require('moment');
 const { ROLE } = require('../utils/consts');
 
 module.exports = (sequelize, DataTypes) => {

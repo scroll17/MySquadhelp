@@ -9,7 +9,7 @@ import HowItWorksHome from '../../components/MainHome/HowItWorksHome/HowItWorksH
 class MainPages extends Component{
     render() {
         return (
-            <header className={style.Header}>
+            <header className={style.header}>
                 <HeaderTop />
                 <HeaderBottom />
                 <BannerHome />

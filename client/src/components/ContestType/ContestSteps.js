@@ -1,5 +1,5 @@
-import React, { useState, useEffect }  from 'react';
-import style from './ContestSteps.module.sass';
+import React from 'react';
+//import style from './ContestSteps.module.sass';
 
 
 import StartContestSteps from './StartContestSteps/StartContestSteps'

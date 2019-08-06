@@ -9,16 +9,16 @@ import Button from '../Button/Button'
 function HeaderBottom(){
 
         return (
-            <div className={style.Header}>
-                <div className={style.Container}>
-                    <div className={style.Row}>
+            <div className={style.header}>
+                <div className={style.container}>
+                    <div className={style.row}>
 
-                        <Link to={'/'} className={style.Link}>
-                            <div className={style.Logo} />
+                        <Link to={'/'} className={style.link}>
+                            <div className={style.logo} />
                         </Link>
 
-                        <div className={style.List} >
-                            <ul className={style.HeaderList}>
+                        <div className={style.list} >
+                            <ul className={style.headerList}>
                                 <ListItem>
                                     Name Ideas
                                     <>Beauty</>
@@ -28,7 +28,7 @@ function HeaderBottom(){
                                     <>Finance</>
                                     <>Real Estate</>
                                     <>Tech</>
-                                    <hr/>
+                                    <hr id={'one'}/>
                                     <>More Categories</>
                                 </ListItem>
 
@@ -37,11 +37,11 @@ function HeaderBottom(){
                                     <>How it Works</>
                                     <>Pricing</>
                                     <>Agency Services</>
-                                    <hr />
+                                    <hr id={'two'}/>
                                     <>Active Contests</>
                                     <>Winners</>
                                     <>Leaderboard</>
-                                    <hr />
+                                    <hr id={'three'}/>
                                     <>Become A Creative</>
                                 </ListItem>
 
@@ -50,7 +50,7 @@ function HeaderBottom(){
                                     <>Names</>
                                     <>Taglines</>
                                     <>Logos</>
-                                    <hr />
+                                    <hr id={'four'}/>
                                     <>Testimonials</>
                                 </ListItem>
 
@@ -61,7 +61,7 @@ function HeaderBottom(){
                                     <>Intriguing Names</>
                                     <>Names By Category</>
                                     <>Visual Name Generator</>
-                                    <hr />
+                                    <hr id={'five'}/>
                                     <>Shell Your Domains</>
                                 </ListItem>
 
@@ -70,7 +70,7 @@ function HeaderBottom(){
                                     <>Ultimate Naming Guide</>
                                     <>Poetic Devices in Business Naming</>
                                     <>Crowded Bar Theory</>
-                                    <hr />
+                                    <hr id={'six'}/>
                                     <>All Articles</>
                                 </ListItem>
                             </ul>

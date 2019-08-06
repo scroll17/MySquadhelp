@@ -3,6 +3,12 @@ import { Provider } from 'react-redux';
 import config from './config';
 import App from '../App';
 
+import { toast } from 'react-toastify';
+
+toast.configure({
+    autoClose: 2000,
+    closeOnClick: true
+});
 
 const STORE = config();
 

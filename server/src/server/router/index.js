@@ -10,14 +10,10 @@ const updateRefreshToken = require('../middlewares/updateRefreshToken');
 const refreshValidationToken = require("../middlewares/refreshValidationToken");
 
 const deleteTokenPair = require('../middlewares/deleteTokenPair');
-
 const defineTheRole = require("../middlewares/defineTheRole");
 
 
 const router = express.Router();
-
-
-//router.use(defineTheRole.func);
 
 
 // ---------------- User ---------------

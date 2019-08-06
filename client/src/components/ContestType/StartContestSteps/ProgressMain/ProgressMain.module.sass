@@ -1,4 +1,4 @@
-.ProgressMain
+.progressMain
   max-width: 58.3%
   margin-top: 40px
   padding-right: 15px
@@ -7,11 +7,11 @@
   display: flex
   flex-direction: row
 
-  .ProgressBarStep
+  .progressBarStep
     display: flex
     flex-direction: row
 
-    .Bar
+    .bar
       position: relative
       width: 5vw
       height: 5px
@@ -24,8 +24,7 @@
         top: 1px solid #d5d5da
         bottom: 1px solid #d5d5da
 
-
-    .Tooltip
+    .tooltip
       opacity: 1
       margin-top: -50px
       margin-left: -90px
@@ -40,7 +39,6 @@
       text-align: start
       filter: alpha(opacity=0)
       line-break: auto
-
       &:after
         left: 60%
         top: 5px
@@ -49,7 +47,7 @@
         border: 7px solid transparent
         border-top: 7px solid #28d2d0
 
-      .TooltipInner
+      .tooltipInner
         background: #28d2d0
         font-size: 15px
         font-weight: 500
@@ -61,7 +59,7 @@
         text-align: center
         border-radius: 4px
 
-    .Circle
+    .circle
       border: 1px solid #d5d5da
       background: #fff
       z-index: 1
@@ -70,13 +68,11 @@
       height: 36px
       border-radius: 40px
       box-sizing: border-box
-
       &:hover
         border: 2px solid #28d2d0
 
-      .Label
+      .label
         color: #b5b5ba
-
         width: 20px
         height: 20px
         margin-left: 6px
@@ -88,9 +84,9 @@
         float: right
 
 
-    .Done
+    .done
       border: 2px solid #28d2d0
-      .Label
+      .label
         color: #FFF
         background: #28d2d0
 

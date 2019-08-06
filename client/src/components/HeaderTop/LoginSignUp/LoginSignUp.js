@@ -17,19 +17,19 @@ function LoginSignUp(props){
     const navigation = ({user, toLogoutClick}) => {
         if (user) {
             let adminPanel = user.role === "admin" ?
-                (<Link to={"/adminpanel"} style={{color: "#3ea9f5"}}><li id={style.Admin}>Admin panel </li></Link>)
+                <Link to={"/adminpanel"} style={{color: "#3ea9f5"}}><li id={style.admin}>Admin panel </li></Link>
                 : null;
 
             return(
                 <>
-                    <span className={style.InformUser} onMouseDown={(e) => {e.preventDefault()}} onClick={toOpenMenu}>
-                        <div className={style.IconUser} />
+                    <span className={style.informUser} onMouseDown={(e) => {e.preventDefault()}} onClick={toOpenMenu}>
+                        <div className={style.iconUser} />
                          Hi, {user.firstName}
                         <i className="fa fa-angle-down"/>
                     </span>
 
                     {display === "block" &&
-                        <ul id={style.DropdownMenu} >
+                        <ul id={style.dropdownMenu} >
                             <Link to={"/dashboard"}><li> View Dashboard </li></Link>
                             <Link to={"/myaccount"}> <li> My Account </li></Link>
                             <Link to={"/messages"}> <li> Messages </li></Link>
@@ -39,7 +39,7 @@ function LoginSignUp(props){
                         </ul>
                     }
 
-                    <Link to={'/messages'} className={style.Message} >
+                    <Link to={'/messages'} className={style.message} >
                         <i className="far fa-envelope" />
                     </Link>
                 </>
@@ -59,14 +59,12 @@ function LoginSignUp(props){
     };
 
     return (
-        <div className={style.LoginSignUp}>
-            <div className={style.Row}>
+        <div className={style.loginSignUp}>
+            <div className={style.row}>
                 {navigation(props)}
             </div>
         </div>
     )
-
-
 }
 
 const mapStateToProps = (state) => ({

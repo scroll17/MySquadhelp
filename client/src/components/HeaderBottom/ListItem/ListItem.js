@@ -10,8 +10,8 @@ function ListItem(props){
         const [drop, setDrop] = useState(false);
 
         return (
-            <div className={style.BlockForList} onMouseOver={() => setDrop(true)} onMouseOut={() => setDrop(false)}>
-                <li className={style.Item}  >
+            <div className={style.blockForList} onMouseOver={() => setDrop(true)} onMouseOut={() => setDrop(false)}>
+                <li className={style.item}  >
                     <Link to={"/Name-Ideas"} >
                         {name}
                         <i className="fa fa-angle-down" />

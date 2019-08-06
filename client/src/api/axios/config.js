@@ -17,14 +17,15 @@ axios.interceptors.request.use(  config => {
 axios.interceptors.response.use(
     response => response,
     async (error) => {
-        /*const { response: {config} } = error;*/
+        const { response: {config} } = error;
 
         try {
             switch (error.response.status) {
                 case 401:
                     localStorage.clear();
                     history.push('/login');
-                    break;
+                    return Promise.reject(error);
+                    //break;
                 case 419:
                     //console.clear(); //TODO console._commandLineAPI.clear();
 
@@ -33,16 +34,18 @@ axios.interceptors.response.use(
 
                     store.dispatch({type: ACTION.TOKENS_ACTION_WITH_LOCAL, tokens });
                     store.dispatch({type: ACTION.USERS_RESPONSE, user});
-                    break;
+                    return new Promise.reject(error);
+                    //break;
                 default:
                     console.log('default axios:',error.response.status);
+                    return  Promise.reject(error);
             }
         } catch (err) {
             console.log('/axios/config : ',err);
             store.dispatch({type: ACTION.TOKENS_ERROR, error: err});
         }
 
-        //return axios.request(config); //TODO Делает повторный звпрос неудачного запроса
+        return axios.request(config); //TODO Делает повторный звпрос неудачного запроса
     }
 );
 

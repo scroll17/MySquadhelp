@@ -1,4 +1,3 @@
-/* like mutation */
 import ACTION from '../actions/actiontsTypes';
 
 const initialState = {

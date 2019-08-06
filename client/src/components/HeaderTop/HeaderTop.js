@@ -7,8 +7,8 @@ import LoginSignUp from './LoginSignUp/LoginSignUp'
 class HeaderTop extends Component {
     render() {
         return (
-            <div className={style.HeaderTop}>
-                <div className={style.Container}>
+            <div className={style.headerTop}>
+                <div className={style.container}>
                     <ContactsDetails />
                     <LoginSignUp />
                 </div>

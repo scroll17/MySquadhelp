@@ -25,8 +25,6 @@ module.exports = (url) => async (req, res, next) => {
             try {
                 const decoded = await verifyToken(accessToken, 'A');
 
-                console.log('verify',id === `${decoded.id}`);
-
                 if (decoded.role !== "admin" ) return next(new error.Forbidden());
                 if ( id === `${decoded.id}`) return next(new error.Forbidden());
 

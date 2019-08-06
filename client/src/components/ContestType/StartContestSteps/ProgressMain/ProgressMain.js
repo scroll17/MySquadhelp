@@ -1,58 +1,58 @@
-import React, { useState, useEffect }  from 'react';
+import React from 'react';
 import style from './ProgressMain.module.sass';
 
 
 function ProgressMain(){
 
     return (
-        <div className={style.ProgressMain}>
-            <div className={style.ProgressBarStep}>
+        <div className={style.progressMain}>
+            <div className={style.progressBarStep}>
                 <span/>
-                <div className={`${style.Circle} ${style.Done}`}>
-                    <span className={style.Label}/>
+                <div className={`${style.circle} ${style.done}`}>
+                    <span className={style.label}/>
                 </div>
-                <div className={style.Tooltip}>
-                    <div className={style.TooltipInner}>
+                <div className={style.tooltip}>
+                    <div className={style.tooltipInner}>
                         1. Select Contest Type
                     </div>
                 </div>
             </div>
-            <div className={style.ProgressBarStep}>
-                <span className={style.Bar}/>
-                <div className={style.Circle}>
-                    <span className={style.Label}/>
+            <div className={style.progressBarStep}>
+                <span className={style.bar}/>
+                <div className={style.circle}>
+                    <span className={style.label}/>
                 </div>
                 {/*<div className={style.Tooltip}>
                                 </div>*/}
             </div>
-            <div className={style.ProgressBarStep}>
-                <span className={style.Bar}/>
-                <div className={style.Circle}>
-                    <span className={style.Label}/>
+            <div className={style.progressBarStep}>
+                <span className={style.bar}/>
+                <div className={style.circle}>
+                    <span className={style.label}/>
                 </div>
                 {/*<div className={style.Tooltip}>
                                 </div>*/}
             </div>
-            <div className={style.ProgressBarStep}>
-                <span className={style.Bar}/>
-                <div className={style.Circle}>
-                    <span className={style.Label}/>
+            <div className={style.progressBarStep}>
+                <span className={style.bar}/>
+                <div className={style.circle}>
+                    <span className={style.label}/>
                 </div>
                 {/*<div className={style.Tooltip}>
                                 </div>*/}
             </div>
-            <div className={style.ProgressBarStep}>
-                <span className={style.Bar}/>
-                <div className={style.Circle}>
-                    <span className={style.Label}/>
+            <div className={style.progressBarStep}>
+                <span className={style.bar}/>
+                <div className={style.circle}>
+                    <span className={style.label}/>
                 </div>
                 {/*<div className={style.Tooltip}>
                                 </div>*/}
             </div>
-            <div className={style.ProgressBarStep}>
-                <span className={style.Bar}/>
-                <div className={style.Circle}>
-                    <span className={style.Label}/>
+            <div className={style.progressBarStep}>
+                <span className={style.bar}/>
+                <div className={style.circle}>
+                    <span className={style.label}/>
                 </div>
                 {/*<div className={style.Tooltip}>
                                 </div>*/}

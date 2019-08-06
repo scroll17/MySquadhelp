@@ -8,11 +8,13 @@ import ContestSteps from '../../components/ContestType/ContestSteps'
 class ContestTypePage extends Component{
     render() {
         return (
-            <header className={style.Header}>
-                <HeaderTop />
-                <HeaderBottom />
-                <ContestSteps />
-            </header>
+            <>
+                <header className={style.header}>
+                    <HeaderTop/>
+                    <HeaderBottom/>
+                </header>
+                <ContestSteps/>
+            </>
         )
     }
 }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import connect from "react-redux/es/connect/connect";
 
 import style from "./SignupPage.module.sass";
+
 import HeaderLoginAndSignup from "../../components/HeaderLoginAndSignup/HeaderLoginAndSignup";
 import SignupForm from "../../components/SignupForm/SignupForm";
 
@@ -22,8 +23,8 @@ class SignupPage extends Component{
 
     render(){
         return (
-            <main className={style.UserSignupFlow}>
-                <div className={style.Container}>
+            <main className={style.userSignupFlow}>
+                <div className={style.container}>
                     <HeaderLoginAndSignup>Login</HeaderLoginAndSignup>
                     <SignupForm onSubmit={this.onSignupSubmit}/>
                 </div>
