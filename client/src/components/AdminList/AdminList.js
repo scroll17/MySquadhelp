@@ -8,12 +8,20 @@ import ListItem from './ListItem/ListItem';
 
 import connect from "react-redux/es/connect/connect";
 
+import { ToastContainer, toast } from 'react-toastify'; //TODO
+import 'react-toastify/dist/ReactToastify.css';
+
 import { getAllUsers, banUserById } from "../../actions/actionCreator";
 
 
 class AdminList extends Component {
+
+
     clickToBan = (userId, isBanned) => {
         this.props.banUserById(userId, isBanned);
+        toast.error("Error Notification !", {
+            position: toast.POSITION.TOP_RIGHT
+        });
     };
 
     bannedUsers = (users) =>{
@@ -40,20 +48,27 @@ class AdminList extends Component {
     render() {
         const { users } = this.props;
         return (
-            <div className={style.List} onMouseDown={(e) => {e.preventDefault()}}>
-                <ListTo active={this.bannedUsers(users)} clickToItem={this.clickToBan}/>
-                {this.userParser(users)}
+            <>
+                <div className={style.List} onMouseDown={(e) => {e.preventDefault()}}>
+                    <ListTo active={this.bannedUsers(users)} clickToItem={this.clickToBan}/>
+                    {this.userParser(users)}
 
-                <Link to={'/'} className={style.Main}>
-                    <div>
-                        Main
-                    </div>
-                </Link>
-            </div>
+                    <Link to={'/'} className={style.Main}>
+                        <div>
+                            Main
+                        </div>
+                    </Link>
+                </div>
+
+            </>
         )
     }
 
     componentDidMount() {
+        if(this.props.error !== null){
+            console.log(this.props.error);
+            alert(this.props.error)
+        }
         const { users, user} = this.props;
         if(!!user && users.length <= 0){
             this.props.getAllUsers();
@@ -64,6 +79,7 @@ class AdminList extends Component {
 const mapStateToProps = (state) => ({
     user: state.userReducers.user,
     users: state.userReducers.users,
+    error: state.userReducers.error
 });
 
 const mapDispatchToProps = dispatch => ({

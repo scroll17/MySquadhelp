@@ -7,13 +7,13 @@ import { Link } from "react-router-dom";
 function DropDownList(props){
     const visible = props.visible ? {display: "block"} : {display: "none"};
         return (
-            <ul className={style.DropMenu} style={visible}>
+            <ul className={style.DropMenu} style={visible}>q
                 {props.elements.map( item => {
-                    //const child = item.props.children;
-                    if(item.type === "hr") return <hr />;
+                    const key = item.props.children === undefined ? `${Math.random()}12gg45yy` : item.props.children;
+                    if(item.type === "hr") return <hr key={key}/>;
                     return (
-                        <Link to={"/"}>
-                            <li key={item.props.children}>{item}</li>
+                        <Link to={"/"} key={key}>
+                            <li>{item}</li>
                         </Link>
                     )
                 })}

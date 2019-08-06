@@ -40,6 +40,7 @@ module.exports = {
             role: {
                 type: Sequelize.STRING,
                 allowNull: false,
+                defaultValue: "buyer",
                 validate: {
                     allowNull: false,
                     isIn: ROLE,

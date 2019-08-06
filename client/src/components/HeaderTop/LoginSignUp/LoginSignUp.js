@@ -16,7 +16,7 @@ function LoginSignUp(props){
 
     const navigation = ({user, toLogoutClick}) => {
         if (user) {
-            let adminPanel = user.role === 2 ?
+            let adminPanel = user.role === "admin" ?
                 (<Link to={"/adminpanel"} style={{color: "#3ea9f5"}}><li id={style.Admin}>Admin panel </li></Link>)
                 : null;
 

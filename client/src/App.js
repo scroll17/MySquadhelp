@@ -37,7 +37,7 @@ class App extends Component{
                         <Route path={"/login"} component={this.IfUserIsLoggedIn(LoginPages)}/>
                         <Route path={"/signup"} component={this.IfUserIsLoggedIn(SignupPage)}/>
                         <Route path={"/contesttype"} component={ContestTypePage}/>
-                        <PrivateRoute requireRole={2} path={"/adminpanel"}  component={AdminListPage} />
+                        <PrivateRoute requireRole={"admin"} path={"/adminpanel"}  component={AdminListPage} />
                         <Route component={ NotFoundPages } />
                     </Switch>
                 </Router>
