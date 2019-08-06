@@ -66,7 +66,8 @@ module.exports = (sequelize, DataTypes) => {
 
 
   User.associate = function (models) {
-    User.hasMany(models.RefreshToken, { foreignKey: 'userId', targetKey: 'id' });
+      User.hasMany(models.RefreshToken, { foreignKey: 'userId', targetKey: 'id' });
+      User.hasMany(models.Contests, {foreignKey: 'userId', targetKey: 'id'});
   };
 
 

@@ -5,16 +5,16 @@ import style from "./LoginPages.module.sass";
 import { loginUser } from "../../actions/actionCreator";
 
 import HeaderLoginAndSignup from "../../components/HeaderLoginAndSignup/HeaderLoginAndSignup";
-import LoginForm from "../../components/LoginForm/LoginForm";
+import LoginForm from "../../components/Forms/LoginForm/LoginForm";
 
 import { SubmissionError } from 'redux-form';
 
 import * as yup from 'yup';
 import schema from'../../models/yupValidation';
 
-class LoginPage extends React.Component {
+function LoginPage(props){
 
-    onLoginSubmit = async (values) => {
+    const onLoginSubmit = async (values) => {
 
         const resEmail = await yup.reach(schema, 'email').isValid(values.email);
 
@@ -31,25 +31,22 @@ class LoginPage extends React.Component {
             });
         }
 
-        return this.props.onLoginSubmit(values)
+        return props.onLoginSubmit(values)
     };
 
-    render(){
-        return (
-            <main className={style.userSignupFlow}>
-                <div className={style.container}>
-                    <HeaderLoginAndSignup>Signup</HeaderLoginAndSignup>
-                    <LoginForm onSubmit={this.onLoginSubmit}/>
-                </div>
-            </main>
-        );
-    }
+    return (
+        <main className={style.userSignupFlow}>
+            <div className={style.container}>
+                <HeaderLoginAndSignup>Signup</HeaderLoginAndSignup>
+                <LoginForm onSubmit={onLoginSubmit}/>
+            </div>
+        </main>
+    )
 }
 
 const mapStateToProps = (state) => ({
     user: state.userReducers.user
 });
-
 const mapDispatchToProps = dispatch => ({
     onLoginSubmit: user => dispatch(loginUser(user)),
 });

@@ -19,7 +19,7 @@ module.exports.createUser = async (req, res, next) => {
                 password: body.hash
             },
         });
-        if (!created) return next({code: 401, message: 'Such user already exists'});
+        if (!created) return next(new error.InvalidCredentials());
         req.body.user = user.dataValues;
         next();
     }catch (err){
@@ -29,9 +29,11 @@ module.exports.createUser = async (req, res, next) => {
 
 
 module.exports.loginUser = async (req,res,next) => {
+    console.log('tuuut');
     const {email , password} = req.body;
     try{
         const foundUser = await User.findOne({ where: {email: email}});
+        console.log('foundUser',foundUser);
         if(!foundUser) return next(new error.NotFound());
 
         if(foundUser.dataValues.isBanned === "true") return next(new error.Locked());
@@ -89,7 +91,7 @@ module.exports.updateUsersById = async (req, res, next) => {
             const user = await User.findOne({where: {id}});
             return res.send(user);
         } else {
-            return next({code: 404, message:"Error in updateUsersById"});
+            return next(new error.NotFound());
         }
     } catch (err) {
         next(err);

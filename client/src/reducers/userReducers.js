@@ -5,10 +5,18 @@ const initialState = {
   error: null,
   user: null,
   users: [],
+  contest: ['select']
 };
 
 export default function (state = initialState, action) {
   switch (action.type) {
+    case ACTION.NEXT_STAGE_CONTEST: {
+      return {
+        ...state,
+        contest: action.contest,
+        error: null
+      }
+    }
     case ACTION.USERS_REQUEST: {
       return {
         ...state,

@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import style from './LoginForm.module.sass';
 
 import { Field, reduxForm } from 'redux-form';
+import connect from "react-redux/es/connect/connect";
 
 function LoginForm(props){
+
+    const [serverError, setServerError] = useState(false);
+
+    useEffect(() => {
+        if(!!props.err && props.err.response.status === 404){
+            setServerError(true);
+        }
+    });
 
     const renderField = ({input, placeholder, type, meta: { touched, error },}) => {
         const borderError = error ? style.inputError : null;
@@ -21,6 +30,14 @@ function LoginForm(props){
                 <div className={style.logToYourAc}>
                     <h2>LOGIN TO YOUR ACCOUNT</h2>
                 </div>
+
+                {!serverError ?
+                    null
+                    :
+                    <div className={style.serverError}>
+                        Invalid Email or Password.
+                    </div>
+                }
 
                 <form onSubmit={ handleSubmit } className={style.form}>
                     <div className={style.email}>
@@ -50,4 +67,8 @@ LoginForm = reduxForm ({
     form: 'login',
 })(LoginForm);
 
-export default LoginForm;
+const mapStateToProps = (state) => ({
+    err: state.userReducers.error
+});
+
+export default connect(mapStateToProps)(LoginForm);

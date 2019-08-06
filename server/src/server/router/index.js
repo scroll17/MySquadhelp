@@ -19,6 +19,7 @@ const router = express.Router();
 // ---------------- User ---------------
 router.post('/user', passwordToHash, userController.createUser, createAndSaveToken );
 router.get('/user', accsessValidationToken,  userController.accessUser);
+
 router.post('/login', userController.loginUser, refreshValidationToken, createAndSaveToken );
 router.post('/refresh', userController.refreshUser, updateRefreshToken);
 router.delete('/logout',  deleteTokenPair);

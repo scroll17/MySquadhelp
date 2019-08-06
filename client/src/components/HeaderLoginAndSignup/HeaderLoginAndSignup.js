@@ -6,11 +6,11 @@ import style from './HeaderLoginAndSignup.module.sass';
 function HeaderLoginAndSignup(props) {
     const link = props.children;
     return (
-        <div className={style.Header}>
+        <div className={style.header}>
             <Link to={'/'}>
-                <div className={style.Logo} />
+                <div className={style.logo} />
             </Link>
-            <div className={style.LoginBottom}>
+            <div className={style.loginBottom}>
                 <Link to={`/${link.toLowerCase()}`}>{link}</Link>
             </div>
         </div>

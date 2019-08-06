@@ -4,7 +4,7 @@ import connect from "react-redux/es/connect/connect";
 import style from "./SignupPage.module.sass";
 
 import HeaderLoginAndSignup from "../../components/HeaderLoginAndSignup/HeaderLoginAndSignup";
-import SignupForm from "../../components/SignupForm/SignupForm";
+import SignupForm from "../../components/Forms/SignupForm/SignupForm";
 
 import { createUser } from "../../actions/actionCreator";
 
