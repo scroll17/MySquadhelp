@@ -1,7 +1,9 @@
 const express = require('express');
-const userController = require('../controllers/userController');
 
-//const validation = require("../middlewares/validationDatabase");
+const userController = require('../controllers/userController');
+const contestController = require('../controllers/contestController');
+
+
 
 const passwordToHash = require("../middlewares/passwordToHash");
 const createAndSaveToken = require('../middlewares/createAndSaveToken');
@@ -28,6 +30,10 @@ router.delete('/logout',  deleteTokenPair);
 // ---------------- Admin ---------------
 router.put('/user/:id', defineTheRole("/user/:id"),  userController.updateUsersById);
 router.get('/AllUser', defineTheRole("/AllUser"),  userController.getAllUsers);
+
+
+// ---------------- Contest ---------------
+router.post('/contest', contestController.createContest );
 
 
 

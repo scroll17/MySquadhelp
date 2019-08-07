@@ -12,6 +12,11 @@ import {
 
 import { saveTokenSaga,tokenErrorSaga } from './tokenSaga'
 
+
+import { createContestSaga } from './contestSaga'
+
+
+
 function* rootSaga() {
   yield takeLatest(ACTION.LOGIN_USER_ACTION, loginUserSaga);
   yield takeLatest(ACTION.CREATE_USER_ACTION, createUserSaga);
@@ -21,6 +26,11 @@ function* rootSaga() {
   yield takeLatest(ACTION.USER_LOGOUT, userLogoutSaga);
   yield takeLatest(ACTION.GET_ALL_USERS, getAllUserSaga);
   yield takeLatest(ACTION.BAN_USER_BY_ID, banUserByIdSaga);
+
+
+  yield takeLatest(ACTION.CREATE_CONTEST_ACTION, createContestSaga);
+
+
 
 }
 

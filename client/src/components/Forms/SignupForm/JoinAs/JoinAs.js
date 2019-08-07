@@ -5,14 +5,14 @@ import { Field } from 'redux-form';
 
 
 function JoinAs(props) {
-    const { role, id } = props;
+    const { role, id, chek } = props;
 
     return (
         <div className={style.row}>
             <div className={style.joinAs}>
 
                 <span className={style.input}>
-                    <Field name="role" component="input" type="radio" id={`check1${id}`} value={role}/>
+                    <Field name="role" component="input" type="radio"  value={role} />
                 </span>
 
                    <div className={style.joinLabel}>

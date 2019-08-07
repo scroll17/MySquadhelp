@@ -1,6 +1,23 @@
 .row
   display: flex
-  flex-flow: row
+  flex-direction: column
+  align-items: center
+
+  .rowInputs
+    display: flex
+    flex-direction: row
+
+  .errorContainer
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
+    margin-bottom: 15px
+    border: 1px solid #b72522
+    font-size: 14px
+    color: #fff
+    padding: 5px 15px
+    flex-basis: 10px
+    width: 95%
+    text-align: center
+    box-sizing: border-box
 
   .fieldContainer
     display: flex

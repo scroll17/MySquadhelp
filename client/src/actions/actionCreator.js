@@ -1,10 +1,13 @@
 import ACTION from './actiontsTypes';
 
-export const nextContestForm = contest => ({
-  type: ACTION.NEXT_STAGE_CONTEST,
+export const nextContestStage = stage => ({
+  type: ACTION.STAGE_CONTEST,
+  stage
+});
+export const createContest = contest => ({
+  type: ACTION.CREATE_CONTEST_ACTION,
   contest
 });
-
 
 export const createStoreResponse = error => ({
   type: ACTION.USERS_RESPONSE,

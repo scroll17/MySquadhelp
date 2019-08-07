@@ -1,5 +1,1 @@
-const ROLE = ['buyer','creative'];
-
-export default {
-    ROLE
-}
+export const ROLE = ['buyer','creative'];

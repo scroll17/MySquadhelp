@@ -10,10 +10,11 @@ const initialState = {
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case ACTION.NEXT_STAGE_CONTEST: {
+    case ACTION.STAGE_CONTEST: {
+      console.log("STAGE_CONTEST");
       return {
         ...state,
-        contest: action.contest,
+        contest: action.stage,
         error: null
       }
     }

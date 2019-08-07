@@ -9,7 +9,11 @@ import ContestSteps from '../../components/ContestType/ContestSteps'
 import ContestsForm from '../../components/Forms/ContestsForm/ContestsForm'
 import StartContestSteps from "../../components/ContestType/StartContestSteps/StartContestSteps";
 
+
+import {createContest, nextContestStage} from "../../actions/actionCreator";
+
 class ContestTypePage extends Component{
+
     render() {
         return (
             <>
@@ -21,7 +25,7 @@ class ContestTypePage extends Component{
                 <StartContestSteps />
 
                 {this.props.contest[this.props.contest.length-1] === 'select' ?
-                    <ContestSteps/>
+                    <ContestSteps />
                     :
                     <ContestsForm />
                 }
@@ -30,9 +34,12 @@ class ContestTypePage extends Component{
     }
 }
 
+
 const mapStateToProps = (state) => ({
     contest: state.userReducers.contest
 });
+const mapDispatchToProps = dispatch => ({
 
+});
 
-export default connect(mapStateToProps)(ContestTypePage);
+export default connect(mapStateToProps, mapDispatchToProps)(ContestTypePage);

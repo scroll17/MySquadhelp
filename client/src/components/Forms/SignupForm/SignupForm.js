@@ -3,16 +3,33 @@ import style from './SignupForm.module.sass';
 
 import { Link } from "react-router-dom";
 
-import { reduxForm } from 'redux-form';
+import { reduxForm, Fields } from 'redux-form';
 
 import Input from './Input/Input'
 import JoinAs from './JoinAs/JoinAs'
 
 
+import { asyncValidation } from '../../../validation/asyncValidation'
+
 class SignupForm extends Component {
 
+    firtsInputs =  props => <Input {...props}
+                          name={{one:"firstName", two:'lastName'}}
+                          placeholder={{one:"First name", two:'Last name'}}
+                          type={{one:"text", two:'text'}}  />;
+
+    secondInputs = props => <Input {...props}
+                          name={{one:"displayName", two:'email'}}
+                          placeholder={{one:"Display name", two:'Email Address'}}
+                          type={{one:"text", two:'email'}}  />;
+
+    thirdInputs = props => <Input {...props}
+                         name={{one:"password", two:'passwordRepeat'}}
+                         placeholder={{one:"Password", two:'Password Confirmation'}}
+                         type={{one:"password", two:'password'}}  />;
+
     render () {
-        const {handleSubmit} = this.props;
+        const {handleSubmit, submitting} = this.props;
         return (
 
             <div className={style.loginForm}>
@@ -22,22 +39,15 @@ class SignupForm extends Component {
                 </div>
                 <form onSubmit={handleSubmit} className={style.formWrapper}>
 
-                    <Input name={{one:"firstName", two:'lastName'}}
-                           placeholder={{one:"First name", two:'Last name'}}
-                    />
-                    <Input name={{one:"displayName", two:'email'}}
-                           placeholder={{one:"Display name", two:'Email Address'}}
-                    />
-                    <Input name={{one:"password", two:'passwordRemember'}}
-                           placeholder={{one:"Password", two:'Password Confirmation'}}
-                    />
+                    <Fields names={[ 'firstName', 'lastName' ]} component={this.firtsInputs}/>
+                    <Fields names={[ 'displayName', 'email' ]} component={this.secondInputs}/>
+                    <Fields names={[ 'password', 'passwordRepeat' ]} component={this.thirdInputs}/>
 
-
-                    <JoinAs role={'buyer'} id={1}/>
-                    <JoinAs role={'creative'} id={2}/>
+                    <JoinAs role={'buyer'}  />
+                    <JoinAs role={'creative'} />
 
                     <div className={style.buttom}>
-                        <button type="submit" label="LOGIN">Create account</button>
+                        <button type="submit" disabled={submitting} label="LOGIN">Create account</button>
                     </div>
 
                     <div className={style.fineprint}>
@@ -52,6 +62,7 @@ class SignupForm extends Component {
 
 SignupForm = reduxForm ({
     form: 'Signup',
+    asyncValidate: asyncValidation
 })(SignupForm);
 
 export default SignupForm;

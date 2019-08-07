@@ -11,7 +11,7 @@ const schema = yup.object().shape({
         .required(),
     displayName : yup
         .string()
-        .min(1)
+        .min(4)
         .required(),
     email: yup
         .string()
@@ -20,7 +20,7 @@ const schema = yup.object().shape({
     password: yup
         .string()
         .min(8)
-        .matches(/^[a-z]|[0-9]|[A-Z]$/),
+        .matches(/^[a-z]|[0-9]|[A-Z]/),
     role: yup
         .string()
         .required(),
