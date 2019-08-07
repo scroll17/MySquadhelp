@@ -1,8 +1,11 @@
 import ACTION from './actiontsTypes';
 
 export const nextContestStage = stage => ({
-  type: ACTION.STAGE_CONTEST,
+  type: ACTION.NEXT_STAGE_CONTEST,
   stage
+});
+export const prevContestStage = () => ({
+  type: ACTION.PREV_STAGE_CONTEST,
 });
 export const createContest = contest => ({
   type: ACTION.CREATE_CONTEST_ACTION,

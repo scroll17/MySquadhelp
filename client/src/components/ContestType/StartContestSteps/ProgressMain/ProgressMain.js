@@ -2,7 +2,54 @@ import React from 'react';
 import style from './ProgressMain.module.sass';
 
 
-function ProgressMain(){
+
+function ProgressMain(props){
+
+    const progressSteps = (len) => {
+        return len.map( (item, index) => {
+            if(index === len.length-1){
+                return (
+                    <div className={style.progressBarStep} key={item}>
+                        <div className={`${style.circle} ${style.done}`}>
+                            <span className={style.label}/>
+                        </div>
+                        <div className={style.tooltip}>
+                            <div className={style.tooltipInner}>
+                                {len.length}. {props.caption}
+                            </div>
+                        </div>
+                    </div>
+                )
+            }else{
+                return (
+                    <div className={style.progressBarStep} key={item}>
+                        <div className={`${style.circle} ${style.complete}`}>
+                            <span className={style.label}/>
+                        </div>
+                        <span className={style.bar}/>
+                    </div>
+                )
+            }
+        })
+    };
+
+    return (
+        <div className={style.progressMain}>
+                {progressSteps(props.numberOfStages)}
+        </div>
+
+    )
+
+}
+
+export default ProgressMain;
+
+
+
+
+/*
+function ProgressMain(props){
+
 
     return (
         <div className={style.progressMain}>
@@ -22,40 +69,40 @@ function ProgressMain(){
                 <div className={style.circle}>
                     <span className={style.label}/>
                 </div>
-                {/*<div className={style.Tooltip}>
-                                </div>*/}
+                <div className={style.Tooltip}>
+                                </div>
             </div>
             <div className={style.progressBarStep}>
                 <span className={style.bar}/>
                 <div className={style.circle}>
                     <span className={style.label}/>
                 </div>
-                {/*<div className={style.Tooltip}>
-                                </div>*/}
+                <div className={style.Tooltip}>
+                                </div>
             </div>
             <div className={style.progressBarStep}>
                 <span className={style.bar}/>
                 <div className={style.circle}>
                     <span className={style.label}/>
                 </div>
-                {/*<div className={style.Tooltip}>
-                                </div>*/}
+                <div className={style.Tooltip}>
+                                </div>
             </div>
             <div className={style.progressBarStep}>
                 <span className={style.bar}/>
                 <div className={style.circle}>
                     <span className={style.label}/>
                 </div>
-                {/*<div className={style.Tooltip}>
-                                </div>*/}
+                <div className={style.Tooltip}>
+                                </div>
             </div>
             <div className={style.progressBarStep}>
-                <span className={style.bar}/>
                 <div className={style.circle}>
                     <span className={style.label}/>
                 </div>
-                {/*<div className={style.Tooltip}>
-                                </div>*/}
+                <div className={style.Tooltip}>
+                                </div>
+                <span className={style.bar}/>
             </div>
         </div>
 
@@ -63,5 +110,6 @@ function ProgressMain(){
 
 }
 
-export default ProgressMain;
+export default ProgressMain;*/
+
 

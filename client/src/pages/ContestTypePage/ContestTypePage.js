@@ -6,7 +6,7 @@ import HeaderTop from "../../components/HeaderTop/HeaderTop";
 import HeaderBottom from "../../components/HeaderBottom/HeaderBottom";
 
 import ContestSteps from '../../components/ContestType/ContestSteps'
-import ContestsForm from '../../components/Forms/ContestsForm/ContestsForm'
+import ContestsForm from '../../components/Forms/ContestsForms/ContestsForm'
 import StartContestSteps from "../../components/ContestType/StartContestSteps/StartContestSteps";
 
 

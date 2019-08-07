@@ -4,7 +4,17 @@ import style from './StartContestSteps.module.sass';
 
 import ProgressMain from './ProgressMain/ProgressMain'
 
-function StartContestSteps(){
+import connect from "react-redux/es/connect/connect";
+import { textForPages } from '../../../utils/textForPages'
+
+function StartContestSteps(props){
+
+    const numberOfStages = props.contest.length;
+
+    const nowStage = props.contest[numberOfStages-1];
+
+    const textForStage = textForPages.find( item => item.page === nowStage);
+
 
     return (
         <div className={style.startContestSteps}>
@@ -12,16 +22,16 @@ function StartContestSteps(){
                 <div className={style.row}>
 
                     <div className={style.headingSteps}>
-                        <h2 className={style.text}>start a contest</h2>
+                        <h2 className={style.text}>{textForStage.title}</h2>
                         <p>
-                            Launching a contest on Squadhelp is very simple. Select the type of contest you would like
-                            to
-                            launch from the list below. Provide a detailed brief and select a pricing package. Begin
-                            receiving submissions instantly!
+                            {textForStage.description}
                         </p>
                     </div>
 
-                    <ProgressMain/>
+                    <ProgressMain
+                        caption={textForStage.caption}
+                        numberOfStages={props.contest}
+                    />
 
                 </div>
             </div>
@@ -30,5 +40,13 @@ function StartContestSteps(){
 
 }
 
-export default StartContestSteps;
+const mapStateToProps = (state) => ({
+    contest: state.userReducers.contest
+});
+const mapDispatchToProps = dispatch => ({
+
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(StartContestSteps);
+
 
