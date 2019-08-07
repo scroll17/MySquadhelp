@@ -1,6 +1,12 @@
 import ACTION from './actiontsTypes';
 
-export const createStoreResponse = error => ({ //TODO
+export const nextContestForm = contest => ({
+  type: ACTION.NEXT_STAGE_CONTEST,
+  contest
+});
+
+
+export const createStoreResponse = error => ({
   type: ACTION.USERS_RESPONSE,
   error
 });

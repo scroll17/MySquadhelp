@@ -8,6 +8,7 @@ const { verifyToken } = require('../utils/jwtTokenVerify');
 
 module.exports.createUser = async (req, res, next) => {
     const body = Object.assign({},req.body);
+    console.log(body);
     try{
         const [user, created] = await User.findOrCreate({
             where: {email: body.email}, defaults: {
@@ -23,6 +24,7 @@ module.exports.createUser = async (req, res, next) => {
         req.body.user = user.dataValues;
         next();
     }catch (err){
+        console.log(err);
         next(err)
     }
 };
@@ -33,10 +35,9 @@ module.exports.loginUser = async (req,res,next) => {
     const {email , password} = req.body;
     try{
         const foundUser = await User.findOne({ where: {email: email}});
-        console.log('foundUser',foundUser);
         if(!foundUser) return next(new error.NotFound());
 
-        if(foundUser.dataValues.isBanned === "true") return next(new error.Locked());
+        if(foundUser.dataValues.isBanned === "true") return next(new error.Forbidden());
 
         req.body.user = foundUser.dataValues;
         req.body.password = password;

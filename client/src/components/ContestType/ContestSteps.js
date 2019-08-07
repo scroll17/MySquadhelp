@@ -12,7 +12,6 @@ function ContestSteps(){
         return (
             <section>
 
-                <StartContestSteps />
                 <ContestPopularCategories />
                 <ContestBundlePackages />
                 <ContestOtherCategories />

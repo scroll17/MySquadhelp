@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import style from './LoginForm.module.sass';
+import style from './NameForm.sass';
 
 import { Field, reduxForm } from 'redux-form';
 import connect from "react-redux/es/connect/connect";
 
 import { toast } from 'react-toastify';
 
-function LoginForm(props){
+function NameForm(props){
 
     const [serverError, setServerError] = useState(false);
 
@@ -71,12 +71,12 @@ function LoginForm(props){
 
 }
 
-LoginForm = reduxForm ({
+NameForm = reduxForm ({
     form: 'login',
-})(LoginForm);
+})(NameForm);
 
 const mapStateToProps = (state) => ({
     err: state.userReducers.error
 });
 
-export default connect(mapStateToProps)(LoginForm);
+export default connect(mapStateToProps)(NameForm);

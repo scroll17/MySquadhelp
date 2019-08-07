@@ -23,25 +23,25 @@ function ContestPopularCategories(){
                                 <li>
                                     <ItemContestType
                                         src={['Company-Names']}
-                                        href={'/startcontest'}
                                         name={'Name'}
                                         text={'Get up and running with the perfect name. '}
+                                        contestTo={['name']}
                                     />
                                 </li>
                                 <li>
                                     <ItemContestType
                                         src={['Logos']}
-                                        href={'/startcontest'}
                                         name={'Logo'}
                                         text={'Kickstart your venture with a unique, memorable logo '}
+                                        contestTo={['logo']}
                                     />
                                 </li>
                                 <li>
                                     <ItemContestType
                                         src={['Taglines']}
-                                        href={'/startcontest'}
                                         name={'Tagline or Slogan'}
                                         text={'Connect deeply with your target audience with an on-target tagline '}
+                                        contestTo={['tagline']}
                                     />
                                 </li>
                                 <li>

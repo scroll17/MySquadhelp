@@ -2,6 +2,8 @@ import React, { useState }  from 'react';
 import style from './ItemContestType.module.sass';
 
 import { Link } from "react-router-dom";
+import { nextContestForm } from "../../../actions/actionCreator";
+import connect from "react-redux/es/connect/connect";
 
 function ItemContestType(props){
 
@@ -24,7 +26,12 @@ function ItemContestType(props){
     });
 
     return (
-        <Link className={style.container} to={props.href} onMouseOver={() => setImagesColor('blue')} onMouseOut={() => setImagesColor('grey')}>
+        <span className={style.container}
+           onClick={() => props.nextContest(props.contestTo)}
+           onMouseOver={() => setImagesColor('blue')}
+           onMouseOut={() => setImagesColor('grey')}
+
+        >
 
             <div className={style.images}>
                 {divImg(props.src, imagesColor)}
@@ -34,9 +41,16 @@ function ItemContestType(props){
             <hr />
             <p>{props.text}</p>
 
-        </Link>
+        </span>
     )
 }
 
-export default ItemContestType;
+const mapStateToProps = (state) => ({
+    contest: state.userReducers.contest
+});
+const mapDispatchToProps = dispatch => ({
+    nextContest: contest => dispatch(nextContestForm(contest)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ItemContestType);
 

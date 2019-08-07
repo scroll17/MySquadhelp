@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import connect from "react-redux/es/connect/connect";
 
 import style from "./ContestTypePage.module.sass";
 import HeaderTop from "../../components/HeaderTop/HeaderTop";
 import HeaderBottom from "../../components/HeaderBottom/HeaderBottom";
+
 import ContestSteps from '../../components/ContestType/ContestSteps'
+import ContestsForm from '../../components/Forms/ContestsForm/ContestsForm'
+import StartContestSteps from "../../components/ContestType/StartContestSteps/StartContestSteps";
 
 class ContestTypePage extends Component{
     render() {
@@ -13,10 +17,22 @@ class ContestTypePage extends Component{
                     <HeaderTop/>
                     <HeaderBottom/>
                 </header>
-                <ContestSteps/>
+
+                <StartContestSteps />
+
+                {this.props.contest[this.props.contest.length-1] === 'select' ?
+                    <ContestSteps/>
+                    :
+                    <ContestsForm />
+                }
             </>
         )
     }
 }
 
-export default ContestTypePage;
+const mapStateToProps = (state) => ({
+    contest: state.userReducers.contest
+});
+
+
+export default connect(mapStateToProps)(ContestTypePage);

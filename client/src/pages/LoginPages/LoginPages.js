@@ -10,7 +10,7 @@ import LoginForm from "../../components/Forms/LoginForm/LoginForm";
 import { SubmissionError } from 'redux-form';
 
 import * as yup from 'yup';
-import schema from'../../models/yupValidation';
+import schema from '../../validation/yupValidation';
 
 function LoginPage(props){
 

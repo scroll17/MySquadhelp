@@ -49,7 +49,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       defaultValue: "buyer",
       validate: {
-        isIn: ROLE,
+        isIn: [[...ROLE]],
       },
     },
     isActive: {

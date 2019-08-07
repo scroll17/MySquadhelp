@@ -4,7 +4,7 @@ import style from './AdminList.module.sass';
 
 import connect from "react-redux/es/connect/connect";
 
-import {  toast } from 'react-toastify'; //TODO
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { getAllUsers, banUserById } from "../../actions/actionCreator";

@@ -43,7 +43,7 @@ module.exports = {
                 defaultValue: "buyer",
                 validate: {
                     allowNull: false,
-                    isIn: ROLE,
+                    isIn: [[...ROLE]],
                 }
             },
             isActive: {

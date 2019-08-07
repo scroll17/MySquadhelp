@@ -7,7 +7,7 @@ const REFRESH_SECRET = "xzzzzzzzzz";
 const EXPIRES_IN_ACSSES = '30min'; //TODO
 const EXPIRES_IN_REFRESH = '15d';
 
-const ROLE = ['admin','buyer','creative'];
+const ROLE = ['buyer','creative','admin'];
 
 module.exports = {
     PORT,

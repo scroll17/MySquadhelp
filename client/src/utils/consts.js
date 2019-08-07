@@ -1,4 +1,4 @@
-const ROLE = ['admin','buyer','creative']; // TODO
+const ROLE = ['buyer','creative'];
 
 export default {
     ROLE

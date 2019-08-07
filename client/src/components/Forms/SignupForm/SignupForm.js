@@ -28,13 +28,13 @@ class SignupForm extends Component {
                     <Input name={{one:"displayName", two:'email'}}
                            placeholder={{one:"Display name", two:'Email Address'}}
                     />
-                    <Input name={{one:"password", two:'password'}}
+                    <Input name={{one:"password", two:'passwordRemember'}}
                            placeholder={{one:"Password", two:'Password Confirmation'}}
                     />
 
 
-                    <JoinAs />
-                    <JoinAs />
+                    <JoinAs role={'buyer'} id={1}/>
+                    <JoinAs role={'creative'} id={2}/>
 
                     <div className={style.buttom}>
                         <button type="submit" label="LOGIN">Create account</button>

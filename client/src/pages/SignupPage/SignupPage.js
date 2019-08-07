@@ -16,6 +16,7 @@ class SignupPage extends Component{
             lastName:values.lastName,
             displayName:values.displayName,
             email: values.email,
+            role: values.role,
             password: values.password,
         };
         this.props.onSignupSubmit(dataSend)
