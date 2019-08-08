@@ -5,15 +5,18 @@ const initialState = {
   error: null,
   user: null,
   users: [],
-  contest: ['select']
+  contest: ['select'],
+  contestQueue:[],
 };
 
 export default function (state = initialState, action) {
   switch (action.type) {
     case ACTION.STAGE_CONTEST: {
+      console.log('STAGE_CONTEST', action);
       return {
         ...state,
-        contest: action.stage,
+        contest: action.constest,
+        contestQueue: action.contestQueue,
         error: null
       }
     }

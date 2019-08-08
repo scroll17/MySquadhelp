@@ -3,7 +3,7 @@ import style from './ItemContestType.module.sass';
 
 import { Link } from "react-router-dom";
 
-import { nextContestStage } from "../../../actions/actionCreator";
+import { toContestQueue } from "../../../actions/actionCreator";
 import connect from "react-redux/es/connect/connect";
 
 function ItemContestType(props){
@@ -28,7 +28,7 @@ function ItemContestType(props){
 
     return (
         <span className={style.container}
-           onClick={() => props.nextContestStage(props.contestTo)}
+           onClick={() => props.toNewContestQueue(props.contestTo)}
            onMouseOver={() => setImagesColor('blue')}
            onMouseOut={() => setImagesColor('grey')}
 
@@ -50,7 +50,7 @@ const mapStateToProps = (state) => ({
     contest: state.userReducers.contest
 });
 const mapDispatchToProps = dispatch => ({
-    nextContestStage: stage => dispatch(nextContestStage(stage)),
+    toNewContestQueue: stage => dispatch(toContestQueue(stage)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ItemContestType);

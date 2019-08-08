@@ -4,6 +4,10 @@ export const nextContestStage = stage => ({
   type: ACTION.NEXT_STAGE_CONTEST,
   stage
 });
+export const toContestQueue = stage => ({
+  type: ACTION.TO_CONTEST_QUEUE,
+  stage
+});
 export const prevContestStage = () => ({
   type: ACTION.PREV_STAGE_CONTEST,
 });
@@ -11,6 +15,8 @@ export const createContest = contest => ({
   type: ACTION.CREATE_CONTEST_ACTION,
   contest
 });
+
+
 
 export const createStoreResponse = error => ({
   type: ACTION.USERS_RESPONSE,
