@@ -39,6 +39,7 @@ class AdminList extends Component {
 
     render() {
         const { users } = this.props;
+        if(this.props.user && this.props.users.length === 0) this.props.getAllUsers();
         return (
             <>
                 <div className={style.list} onMouseDown={(e) => {e.preventDefault()}}>
@@ -55,7 +56,7 @@ class AdminList extends Component {
         )
     }
 
-    componentDidMount() {
+    componentWillUpdate(nextProps, nextState, nextContext) {
         const { users, user, error} = this.props;
 
         if(this.props.error !== null){
@@ -64,9 +65,9 @@ class AdminList extends Component {
             });
         }
 
-        if(!!user && users.length <= 0){
+/*        if(!!user && users.length <= 0){
             this.props.getAllUsers();
-        }
+        }*/
     }
 }
 

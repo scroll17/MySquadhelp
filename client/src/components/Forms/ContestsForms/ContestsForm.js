@@ -1,12 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import style from './ContestsForm.module.sass';
 
-import { Field, reduxForm } from 'redux-form';
 import connect from "react-redux/es/connect/connect";
 
 import NameForm from './NameForm/NameForm'
-import {asyncValidation} from "../../../validation/asyncValidation";
-import SignupForm from "../SignupForm/SignupForm";
 
 import RemoteSubmitButton from '../RemoteSubmitButton/RemoteSubmitButton'
 
@@ -32,33 +29,31 @@ function ContestsForm(props){
                         <div className={style.blockFields}>
 
 
-                          {nowFormContest === "name" && (
-                              <>
-                                  <NameForm onSubmit={createNewContest}/>
-                              </>
-                              )}
+                          {nowFormContest === "name" && ( <NameForm onSubmit={createNewContest}/>  )}
 
                         </div>
 
-                        {nowFormContest !== "select" && (
-                            <div className={style.nextSteps}>
-                                <div className={style.containerSteps}>
-
-                                    <div className={style.stepsText}>
-                                        <p>You are almost finished. Select a pricing package in the next step</p>
-                                    </div>
-
-                                    <div className={style.stepsNavigation}>
-                                        <div onClick={backToPrevStage}>Back</div>
-                                        <RemoteSubmitButton />
-                                    </div>
-
-                                </div>
-                            </div>
-                        )}
-
                     </div>
                 </div>
+
+
+                {nowFormContest !== "select" && (
+                    <div className={style.nextSteps}>
+                        <div className={style.containerSteps}>
+
+                            <div className={style.stepsText}>
+                                <p>You are almost finished. Select a pricing package in the next step</p>
+                            </div>
+
+                            <div className={style.stepsNavigation}>
+                                <div onClick={backToPrevStage}>Back</div>
+                                <RemoteSubmitButton />
+                            </div>
+
+                        </div>
+                    </div>
+                )}
+
             </div>
         );
 

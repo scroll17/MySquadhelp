@@ -12,7 +12,6 @@ const initialState = {
 export default function (state = initialState, action) {
   switch (action.type) {
     case ACTION.STAGE_CONTEST: {
-      console.log('STAGE_CONTEST', action);
       return {
         ...state,
         contest: action.constest,

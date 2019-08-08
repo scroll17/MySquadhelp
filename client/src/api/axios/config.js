@@ -25,7 +25,6 @@ axios.interceptors.response.use(
                     localStorage.clear();
                     history.push('/login');
                     return Promise.reject(error);
-                    //break;
                 case 419:
                     //console.clear(); //TODO console._commandLineAPI.clear();
 
@@ -34,14 +33,13 @@ axios.interceptors.response.use(
 
                     store.dispatch({type: ACTION.TOKENS_ACTION_WITH_LOCAL, tokens });
                     store.dispatch({type: ACTION.USERS_RESPONSE, user});
-                    return new Promise.reject(error);
-                    //break;
+                    return  Promise.reject(error);
                 default:
                     console.log('default axios:',error.response.status);
                     return  Promise.reject(error);
             }
         } catch (err) {
-            console.log('/axios/config : ',err);
+            //console.log('/axios/config : ',err);
             store.dispatch({type: ACTION.TOKENS_ERROR, error: err});
         }
 

@@ -2,12 +2,11 @@ import React from 'react';
 import style from '../StyleForms.module.sass';
 
 
-
 import ReduxFormSelect from '../../ReduxFormSelect/ReduxFormSelect'
 
 import { Field, reduxForm } from 'redux-form';
 
-function NameForm(props) {
+let NameForm = (props) => {
 
     const typeOfVenture = [
             {value:'Company', label:'Company'},

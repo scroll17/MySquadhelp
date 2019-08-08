@@ -8,7 +8,7 @@ import { submit } from 'redux-form'
             type="button"
             onClick={() => dispatch(submit('contest'))}
         >
-            next
+            submit
         </button>
     );
 

@@ -1,8 +1,6 @@
 import React, { useState }  from 'react';
 import style from './ItemContestType.module.sass';
 
-import { Link } from "react-router-dom";
-
 import { toContestQueue } from "../../../actions/actionCreator";
 import connect from "react-redux/es/connect/connect";
 

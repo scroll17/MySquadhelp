@@ -1,24 +1,15 @@
 const error = require("../errors/errors");
-const { User, RefreshToken } = require('../models/index');
+const { User, Contests } = require('../models/index');
 
 
 module.exports.createContest = async (req, res, next) => {
     const body = Object.assign({},req.body);
-    console.log(body);
+    console.log('body',body);
+
     try{
-/*        const [user, created] = await User.findOrCreate({
-            where: {email: body.email}, defaults: {
-                firstName: body.firstName,
-                lastName: body.lastName,
-                displayName: body.displayName,
-                email: body.email,
-                role: body.role,
-                password: body.hash
-            },
-        });
-        if (!created) return next(new error.InvalidCredentials());
-        req.body.user = user.dataValues;
-        next();*/
+
+        const contest = await Contests.create( body );
+        console.log('contest', contest.dataValues);
 
         res.status(201).send('Created !')
 

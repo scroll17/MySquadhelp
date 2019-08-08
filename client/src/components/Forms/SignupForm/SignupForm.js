@@ -43,8 +43,8 @@ class SignupForm extends Component {
                     <Fields names={[ 'displayName', 'email' ]} component={this.secondInputs}/>
                     <Fields names={[ 'password', 'passwordRepeat' ]} component={this.thirdInputs}/>
 
-                    <JoinAs role={'buyer'}  />
-                    <JoinAs role={'creative'} />
+                    <JoinAs roles={'Buyer'}  />
+                    <JoinAs roles={'Creative'} />
 
                     <div className={style.buttom}>
                         <button type="submit" disabled={submitting} label="LOGIN">Create account</button>

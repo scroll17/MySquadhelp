@@ -6,14 +6,15 @@ import connect from "react-redux/es/connect/connect";
 
 import { toast } from 'react-toastify';
 
-function LoginForm(props){
+let LoginForm = (props) => {
 
     const [serverError, setServerError] = useState(false);
 
     useEffect(() => {
         if(!!props.err){
             const response = props.err.response;
-            if(response.status === 404) setServerError(true);
+            if(response.status === 404)
+                setServerError(true);
             if(response.status === 403) {
                 toast.error(response.data.statusText, {
                     position: toast.POSITION.TOP_RIGHT
@@ -23,7 +24,7 @@ function LoginForm(props){
     });
 
     const renderField = ({input, placeholder, type, meta: { touched, error },}) => {
-        const borderError = error ? style.inputError : null;
+        const borderError = error ? {border: '2px solid #f00'} : null;
         return(
                 <>
                     <input {...input} type={type} placeholder={placeholder} className={`${style.inputNormal} ${borderError}`}/>
@@ -39,12 +40,11 @@ function LoginForm(props){
                     <h2>LOGIN TO YOUR ACCOUNT</h2>
                 </div>
 
-                {!serverError ?
-                    null
-                    :
+                {serverError ?
                     <div className={style.serverError}>
-                        Invalid Email or Password.
+                    Invalid Email or Password.
                     </div>
+                    : null
                 }
 
                 <form onSubmit={ handleSubmit } className={style.form}>

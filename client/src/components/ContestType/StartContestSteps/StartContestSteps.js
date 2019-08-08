@@ -5,7 +5,7 @@ import style from './StartContestSteps.module.sass';
 import ProgressMain from './ProgressMain/ProgressMain'
 
 import connect from "react-redux/es/connect/connect";
-import { textForPages } from '../../../utils/textForPages'
+import { textForStartContestSteps  } from '../../../utils/textAndLinksForPages'
 
 function StartContestSteps(props){
 
@@ -13,7 +13,7 @@ function StartContestSteps(props){
 
     const nowStage = props.contest[numberOfStages-1];
 
-    const textForStage = textForPages.find( item => item.page === nowStage);
+    const textForStage = textForStartContestSteps.find( item => item.page === nowStage);
 
 
     return (

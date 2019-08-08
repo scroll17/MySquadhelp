@@ -3,7 +3,7 @@ import { Route, Redirect } from "react-router-dom";
 
 import { MoonLoader } from "react-spinners";
 
-import {getUser} from "../../actions/actionCreator";
+import {getAllUsers, getUser} from "../../actions/actionCreator";
 import connect from "react-redux/es/connect/connect";
 
 class PrivateRoute extends Component{
@@ -20,24 +20,30 @@ class PrivateRoute extends Component{
     }
 
     render(){
-        const { isFetching } = this.props;
         return(
             <>
-                {isFetching === "requested" ?
-                    PrivateRoute.renderLoader()
-                    :
-                    this.renderPage()
-                }
+                {this.renderPage()}
             </>
         )
     }
+
 }
 
 const mapStateToProps = (state) => ({
     user: state.userReducers.user,
+    users: state.userReducers.users,
     isFetching: state.userReducers.isFetching,
 });
 const mapDispatchToProps = (dispatch) => ({
+    getAllUsers: () => dispatch(getAllUsers()),
     getUser: () => dispatch(getUser()),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(PrivateRoute);
+
+
+/*
+{isFetching === "requested" ?
+    null//PrivateRoute.renderLoader()
+    :
+    this.renderPage()
+}*/

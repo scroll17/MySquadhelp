@@ -24,7 +24,9 @@ function ProgressMain(props){
                 return (
                     <div className={style.progressBarStep} key={item}>
                         <div className={`${style.circle} ${style.complete}`}>
-                            <span className={style.label}/>
+                            <span className={style.label}>
+                                <i className="fa fa-check"/>
+                            </span>
                         </div>
                         <span className={style.bar}/>
                     </div>

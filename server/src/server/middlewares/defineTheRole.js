@@ -25,11 +25,13 @@ module.exports = (url) => async (req, res, next) => {
             try {
                 const decoded = await verifyToken(accessToken, 'A');
 
-                if (decoded.role !== "admin" ) return next(new error.Forbidden());
-                if ( id === `${decoded.id}`) return next(new error.Forbidden());
+                if (decoded.role !== "admin" || id === `${decoded.id}` )
+                    return next(new error.Forbidden());
+
 
                 const foundUser = await User.findOne({ where: {id: id}});
-                if(foundUser.dataValues.role === "admin") return next(new error.Conflict());
+                if(foundUser.dataValues.role === "admin")
+                    return next(new error.Forbidden());
 
                 next();
             } catch (err) {
@@ -39,6 +41,7 @@ module.exports = (url) => async (req, res, next) => {
         }
         default:
             console.log('default');
+            next();
     }
 };
 

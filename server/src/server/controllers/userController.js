@@ -9,6 +9,7 @@ const { verifyToken } = require('../utils/jwtTokenVerify');
 module.exports.createUser = async (req, res, next) => {
     const body = Object.assign({},req.body);
     console.log(body);
+
     try{
         const [user, created] = await User.findOrCreate({
             where: {email: body.email}, defaults: {
@@ -51,22 +52,19 @@ module.exports.loginUser = async (req,res,next) => {
 
 module.exports.refreshUser = async (req,res,next) => {
     const {refreshToken} = req.body;
-    //let transaction = await sequelize.transaction();
     try{
         const token = await RefreshToken.findOne({
             where: { tokenString: refreshToken },
-            /*transaction*/
         });
 
         const userId = token.dataValues.userId; //TODO
         await verifyToken(refreshToken, "R");
         req.user = await User.findByPk(userId, /*transaction*/ );
 
-        /*transaction.commit();*/
-
         next()
     }catch (err) {
-        if(err.name === 'TokenExpiredError') return next(new InvalidCredentials(err.name));
+        if(err.name === 'TokenExpiredError')
+            return next(new InvalidCredentials(err.name));
         next(err)
     }
 };
@@ -85,10 +83,10 @@ module.exports.accessUser = async (req,res,next) => {
 module.exports.updateUsersById = async (req, res, next) => {
     const { id } = req.params;
     const isBanned = !req.body.isBanned;
-    console.log('isBanned',isBanned);
-    try {
+     try {
         const updatedUser = await User.update({ isBanned }, {where: {id}});
-        if (updatedUser[0]) {
+
+        if (true) {
             const user = await User.findOne({where: {id}});
             return res.send(user);
         } else {
